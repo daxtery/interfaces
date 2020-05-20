@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "name": "Chicken Noodle Soup",
+        "brand": "Amazon",
+        "category": {
+            "name": "Soup"
+        },
+        "weightType": "g",
+        "unitaryWeight": 200,
+        "unitaryPrice": 3.29
+    },
+    {
+        "id": 2,
+        "name": "Chicken Noodle Soup",
+        "brand": "Campbell",
+        "category": {
+            "name": "Soup"
+        },
+        "weightType": "g",
+        "unitaryWeight": 120,
+        "unitaryPrice": 2.29
+    }
+]

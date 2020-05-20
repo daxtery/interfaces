@@ -8,6 +8,7 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { FilterByBrandComponent } from './components/filter-by-brand/filter-by-brand.component';
 import { FilterByTypeComponent } from './components/filter-by-type/filter-by-type.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { ItemsViewComponent } from './components/items-view/items-view.component';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
       MenuBarComponent,
       FilterByBrandComponent,
       FilterByTypeComponent,
-      SearchBarComponent
+      SearchBarComponent,
+      ItemsViewComponent,
    ],
    imports: [
       BrowserModule,

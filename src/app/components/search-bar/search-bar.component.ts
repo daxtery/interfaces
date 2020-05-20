@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnDestroy, Input } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -16,11 +17,10 @@ import { debounceTime } from 'rxjs/operators';
 export class SearchBarComponent implements OnDestroy {
   @Input() readonly placeholder: string = '';
   @Input() readonly debounceTimer: number = 500;
-  @Output() setValue: EventEmitter<string> = new EventEmitter();
 
   private searchSubject: Subject<string> = new Subject();
 
-  constructor() {
+  constructor(private service: DatabaseService) {
     this.setSearchSubscription();
   }
 
@@ -36,7 +36,7 @@ export class SearchBarComponent implements OnDestroy {
     this.searchSubject.pipe(
       debounceTime(this.debounceTimer)
     ).subscribe((searchValue: string) => {
-      this.setValue.emit(searchValue);
+      this.service.searchedInBox(searchValue);
     });
   }
 

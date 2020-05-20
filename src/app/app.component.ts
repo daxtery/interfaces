@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'interfaces';
+  query: string;
 
   public filterResults(query: string): void {
-    console.log(`Searching in database for ${query}`);
+    this.query = query;
   }
 }
