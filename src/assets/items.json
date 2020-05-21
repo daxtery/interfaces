@@ -4,21 +4,29 @@
         "name": "Chicken Noodle Soup",
         "brand": "Amazon",
         "category": {
-            "name": "Soup"
+            "names": [
+                "Fresh",
+                "Soup"
+            ]
         },
         "weightType": "g",
         "unitaryWeight": 200,
-        "unitaryPrice": 3.29
+        "unitaryPrice": 3.29,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91alI-UO%2BVL._SL1500_.jpg"
     },
     {
         "id": 2,
         "name": "Chicken Noodle Soup",
         "brand": "Campbell",
         "category": {
-            "name": "Soup"
+            "names": [
+                "Frozen",
+                "Soup"
+            ]
         },
         "weightType": "g",
         "unitaryWeight": 120,
-        "unitaryPrice": 2.29
+        "unitaryPrice": 2.29,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91tY%2BHe2AQL._SL1500_.jpg"
     }
 ]

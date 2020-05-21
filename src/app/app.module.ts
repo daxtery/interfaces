@@ -9,11 +9,13 @@ import { FilterByBrandComponent } from './components/filter-by-brand/filter-by-b
 import { FilterByTypeComponent } from './components/filter-by-type/filter-by-type.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ItemsViewComponent } from './components/items-view/items-view.component';
+import { ItemComponent } from './components/item/item.component';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -25,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
       FilterByTypeComponent,
       SearchBarComponent,
       ItemsViewComponent,
+      ItemComponent,
    ],
    imports: [
       BrowserModule,
@@ -33,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
       MatMenuModule,
       MatIconModule,
       HttpClientModule,
-      MatTabsModule
+      MatTabsModule,
+      MatCardModule,
+      MatGridListModule
    ],
    providers: [],
    bootstrap: [

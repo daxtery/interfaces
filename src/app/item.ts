@@ -8,4 +8,5 @@ export class Item {
     unitaryPrice: number;
     unitaryWeight: number;
     weightType: string;
+    pictureUrl: string;
 }
