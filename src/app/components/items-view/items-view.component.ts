@@ -3,6 +3,7 @@ import { Item } from '../../item';
 import { ItemViewServiceService } from 'src/app/services/item-view-service.service';
 import { Category } from 'src/app/category';
 import { DatabaseService } from 'src/app/services/database.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-items-view',
@@ -13,7 +14,7 @@ export class ItemsViewComponent implements OnInit {
 
   items: Item[] = [];
 
-  constructor(service: ItemViewServiceService, database: DatabaseService) {
+  constructor(private cart: CartService, service: ItemViewServiceService, database: DatabaseService) {
     service.currentBrands.subscribe(brands => this.changeFilterByBrand(brands));
     service.currentCategories.subscribe(categories => this.changeFilterByType(categories));
     database.currentItems.subscribe(items => this.items = items);
@@ -38,6 +39,10 @@ export class ItemsViewComponent implements OnInit {
 
   public changeFilterByBrand(allowed: string[]): void {
     this.items = this.items.filter(item => allowed.includes(item.brand));
+  }
+
+  public quantityOfItem(item: Item): number {
+    return this.cart.quantityOfItem(item);
   }
 
   ngOnInit() {

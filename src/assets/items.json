@@ -28,5 +28,21 @@
         "unitaryWeight": 120,
         "unitaryPrice": 2.29,
         "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91tY%2BHe2AQL._SL1500_.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Low Fat Milk",
+        "brand": "Nestle",
+        "category": {
+            "names": [
+                "Dairy",
+                "Milk",
+                "Low-Fat Milk"
+            ]
+        },
+        "weightType": "L",
+        "unitaryWeight": 1,
+        "unitaryPrice": 1.19,
+        "pictureUrl": "https://cdn.shopify.com/s/files/1/2889/2216/products/NESTLE_LOW_FAT_MILK_250ML_800x.png?v=1523867402"
     }
 ]

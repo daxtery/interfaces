@@ -7,20 +7,22 @@
   <mat-card-content>
     <ul>
       <li>{{this.item.unitaryWeight}} {{this.item.weightType}}</li>
-      <li>{{this.item.unitaryPrice}} €
+      <li>{{this.item.unitaryPrice| currency:'EUR'}}
     </ul>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>-</button>
-    <button mat-button>2</button>
-    <button mat-button>+</button>
+    <button *ngIf="this.quantity > 0" (click)="this.removeFromCart()" mat-button>-</button>
+    <button *ngIf="this.quantity > 0" mat-button>{{this.quantity}}</button>
+    <button (click)="this.addToCart()" mat-button>+</button>
   </mat-card-actions>
 
   <mat-card-footer>
-    <ul>
-      <li>2 * {{this.item.unitaryWeight}} {{this.item.weightType}} = {{2 * this.item.unitaryWeight}}
-        {{this.item.weightType}}</li>
-      <li>2 * {{this.item.unitaryPrice}}€ = {{2 * this.item.unitaryPrice}}€
+    <ul *ngIf="this.quantity > 0">
+      <p>{{this.quantity}} * {{this.item.unitaryWeight}} {{this.item.weightType}} =
+        {{this.quantity * this.item.unitaryWeight}}
+        {{this.item.weightType}}</p>
+      <p>{{this.quantity}} * {{this.item.unitaryPrice| currency:'EUR'}} =
+        {{ this.quantity * this.item.unitaryPrice | currency:'EUR'}}</p>
     </ul>
   </mat-card-footer>
 </mat-card>
