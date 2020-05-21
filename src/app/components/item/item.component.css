@@ -2,3 +2,7 @@
     min-width: 10vw;
     max-width: 10vw;
 }
+
+ul li {
+    display:inline;
+}

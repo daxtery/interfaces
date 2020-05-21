@@ -10,12 +10,16 @@ import { FilterByTypeComponent } from './components/filter-by-type/filter-by-typ
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ItemsViewComponent } from './components/items-view/items-view.component';
 import { ItemComponent } from './components/item/item.component';
+import { CartPreviewComponent } from './components/cart-preview/cart-preview.component';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
       SearchBarComponent,
       ItemsViewComponent,
       ItemComponent,
+      CartPreviewComponent
    ],
    imports: [
       BrowserModule,
@@ -38,7 +43,10 @@ import { HttpClientModule } from '@angular/common/http';
       HttpClientModule,
       MatTabsModule,
       MatCardModule,
-      MatGridListModule
+      MatGridListModule,
+      MatCheckboxModule,
+      FormsModule,
+      MatListModule
    ],
    providers: [],
    bootstrap: [

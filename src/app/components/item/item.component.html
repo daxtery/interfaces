@@ -5,11 +5,23 @@
     <mat-card-subtitle>{{this.item.brand}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
+
+    <mat-list class="list-horizontal">
+      <p mat-list-item>{{this.item.unitaryWeight}} {{this.item.weightType}}</p>
+      <p mat-list-item>{{this.item.unitaryWeight}} {{this.item.weightType}}</p>
+    </mat-list>
+
     <ul>
       <li>{{this.item.unitaryWeight}} {{this.item.weightType}}</li>
+      <li>{{this.item.unitaryWeight}} {{this.item.weightType}}</li>
+    </ul>
+
+    <ul>
       <li>{{this.item.unitaryPrice| currency:'EUR'}}
+      <li>{{this.item.unitaryWeight}} {{this.item.weightType}}</li>
     </ul>
   </mat-card-content>
+
   <mat-card-actions>
     <button *ngIf="this.quantity > 0" (click)="this.removeFromCart()" mat-button>-</button>
     <button *ngIf="this.quantity > 0" mat-button>{{this.quantity}}</button>
@@ -25,4 +37,5 @@
         {{ this.quantity * this.item.unitaryPrice | currency:'EUR'}}</p>
     </ul>
   </mat-card-footer>
+
 </mat-card>

@@ -1,3 +1,5 @@
-<p>
-  filter-by-brand works!
-</p>
+<mat-selection-list #list [(ngModel)]="selectedBrands" (ngModelChange)="this.changed($event)">
+  <mat-list-option *ngFor="let brand of brandsFromDatabase" [value]="brand">
+    {{brand}}
+  </mat-list-option>
+</mat-selection-list>

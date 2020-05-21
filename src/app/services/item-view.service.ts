@@ -5,7 +5,7 @@ import { Category } from '../category';
 @Injectable({
   providedIn: 'root'
 })
-export class ItemViewServiceService {
+export class ItemViewService {
 
   private brandsSource = new BehaviorSubject<string[]>([]);
   currentBrands = this.brandsSource.asObservable();
@@ -18,6 +18,7 @@ export class ItemViewServiceService {
   }
 
   changedBrands(allowed: string[]): void {
+    console.log('New allowed are:', allowed);
     this.brandsSource.next(allowed);
   }
 
