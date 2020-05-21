@@ -20,6 +20,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -46,7 +52,11 @@ import { HttpClientModule } from '@angular/common/http';
       MatGridListModule,
       MatCheckboxModule,
       FormsModule,
-      MatListModule
+      MatListModule,
+      MatTooltipModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatDialogModule,
    ],
    providers: [],
    bootstrap: [

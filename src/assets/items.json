@@ -44,5 +44,65 @@
         "unitaryWeight": 1,
         "unitaryPrice": 1.19,
         "pictureUrl": "https://cdn.shopify.com/s/files/1/2889/2216/products/NESTLE_LOW_FAT_MILK_250ML_800x.png?v=1523867402"
+    },
+    {
+        "id": 4,
+        "name": "Pizza",
+        "brand": "Mikey's",
+        "category": {
+            "names": [
+                "Ready-Made",
+                "Pizza"
+            ]
+        },
+        "weightType": "g",
+        "unitaryWeight": 226,
+        "unitaryPrice": 13.99,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/51yOc-1sIDL.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Pizza",
+        "brand": "Digiorno",
+        "category": {
+            "names": [
+                "Ready-Made",
+                "Pizza"
+            ]
+        },
+        "weightType": "g",
+        "unitaryWeight": 241,
+        "unitaryPrice": 15.99,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91BkbXuJPQL._SL1500_.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Pizza",
+        "brand": "Red Baron",
+        "category": {
+            "names": [
+                "Ready-Made",
+                "Pizza"
+            ]
+        },
+        "weightType": "g",
+        "unitaryWeight": 206,
+        "unitaryPrice": 11.99,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/61b1rz-6R9L._SL1000_.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Pizza",
+        "brand": "Gino's",
+        "category": {
+            "names": [
+                "Ready-Made",
+                "Pizza"
+            ]
+        },
+        "weightType": "g",
+        "unitaryWeight": 500,
+        "unitaryPrice": 21.99,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81OhNS5Os6L._SL1440_.jpg"
     }
 ]

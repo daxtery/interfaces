@@ -3,6 +3,6 @@
     max-width: 10vw;
 }
 
-ul li {
+.list-horizontal {
     display:inline;
 }

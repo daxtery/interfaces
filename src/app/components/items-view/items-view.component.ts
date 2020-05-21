@@ -15,24 +15,21 @@ export class ItemsViewComponent implements OnInit {
   items: Item[] = [];
   itemsFromDataBase: Item[] = [];
 
+  nbCols: number = 2;
+
+  ngOnInit() {
+    this.nbCols = (window.innerWidth <= 400) ? 1 : 6;
+  }
+
+  onResize(event) {
+    this.nbCols = (event.target.innerWidth <= 400) ? 1 : 6;
+  }
+
   constructor(private cart: CartService, service: ItemViewService, database: DatabaseService) {
     service.currentBrands.subscribe(brands => this.changeFilterByBrand(brands));
     service.currentCategories.subscribe(categories => this.changeFilterByType(categories));
     database.currentItems.subscribe(items => this.items = this.itemsFromDataBase = items);
   }
-
-  // searchInItemsByCategory(category: Category): Item[] {
-  //   return items.filter(item => item.category === category);
-  // }
-
-  // searchInItems(query: string): Item[] {
-  //   return items.filter(item => {
-  //     return item.name.toLowerCase().match(query.toLowerCase())
-  //       || item.id === Number.parseInt(query, 10)
-  //       || item.brand.toLowerCase().match(query.toLowerCase())
-  //       || item.category.name.toLowerCase().match(query.toLowerCase());
-  //   });
-  // }
 
   public changeFilterByType(allowed: Category[]): void {
     this.items = this.itemsFromDataBase.filter(item => true);
@@ -46,7 +43,5 @@ export class ItemsViewComponent implements OnInit {
     return this.cart.quantityOfItem(item);
   }
 
-  ngOnInit() {
-  }
 
 }

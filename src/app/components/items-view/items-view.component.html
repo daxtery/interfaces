@@ -1,4 +1,4 @@
-<mat-grid-list cols="5" rowHeight="1:1">
+<mat-grid-list [cols]="this.nbCols" rowHeight="1:1" (window:resize)="this.onResize($event)">
   <div *ngFor='let item of items'>
     <mat-grid-tile>
       <app-item [item]=item [quantity]="this.quantityOfItem(item)"></app-item>

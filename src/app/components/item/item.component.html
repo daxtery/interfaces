@@ -1,41 +1,37 @@
 <mat-card class="example-card">
-  <img [src]=this.item.pictureUrl width="100" height="100">
+
   <mat-card-header>
-    <mat-card-title>{{this.item.name}}</mat-card-title>
+    <mat-card-title>{{this.item.name}} {{this.item.unitaryWeight}} {{this.item.weightType}}</mat-card-title>
     <mat-card-subtitle>{{this.item.brand}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
+  
+  <img [src]=this.item.pictureUrl width="100" height="100">
+
+  <mat-card-content class="merda2">
 
     <mat-list class="list-horizontal">
-      <p mat-list-item>{{this.item.unitaryWeight}} {{this.item.weightType}}</p>
-      <p mat-list-item>{{this.item.unitaryWeight}} {{this.item.weightType}}</p>
+      <div mat-list-item>
+
+        <p *ngIf="this.quantity == 0">{{this.item.unitaryPrice | currency:'EUR'}}</p>
+
+        <p *ngIf="this.quantity > 0" matTooltipPosition="before" matTooltip="{{this.quantity}} * {{this.item.unitaryPrice| currency:'EUR'}} =
+          {{ this.quantity * this.item.unitaryPrice | currency:'EUR'}}">
+          {{this.item.unitaryPrice | currency:'EUR'}}
+        </p>
+
+      </div>
+
     </mat-list>
 
-    <ul>
-      <li>{{this.item.unitaryWeight}} {{this.item.weightType}}</li>
-      <li>{{this.item.unitaryWeight}} {{this.item.weightType}}</li>
-    </ul>
-
-    <ul>
-      <li>{{this.item.unitaryPrice| currency:'EUR'}}
-      <li>{{this.item.unitaryWeight}} {{this.item.weightType}}</li>
-    </ul>
   </mat-card-content>
 
   <mat-card-actions>
-    <button *ngIf="this.quantity > 0" (click)="this.removeFromCart()" mat-button>-</button>
-    <button *ngIf="this.quantity > 0" mat-button>{{this.quantity}}</button>
     <button (click)="this.addToCart()" mat-button>+</button>
+    <button *ngIf="this.quantity > 0" mat-button>{{this.quantity}}</button>
+    <button *ngIf="this.quantity > 0" (click)="this.removeFromCart()" mat-button>-</button>
   </mat-card-actions>
 
   <mat-card-footer>
-    <ul *ngIf="this.quantity > 0">
-      <p>{{this.quantity}} * {{this.item.unitaryWeight}} {{this.item.weightType}} =
-        {{this.quantity * this.item.unitaryWeight}}
-        {{this.item.weightType}}</p>
-      <p>{{this.quantity}} * {{this.item.unitaryPrice| currency:'EUR'}} =
-        {{ this.quantity * this.item.unitaryPrice | currency:'EUR'}}</p>
-    </ul>
   </mat-card-footer>
 
 </mat-card>
