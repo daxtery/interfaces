@@ -7,6 +7,7 @@ import { ItemViewService } from 'src/app/services/item-view.service';
 import { DatabaseService } from 'src/app/services/database.service';
 import { Category } from 'src/app/category';
 import { Item } from 'src/app/item';
+import { CategoryWithParent } from 'src/app/categoryWithParent';
 
 /** Flat to-do item node with expandable and level information */
 
@@ -21,18 +22,6 @@ export class ItemTypeFlatNode {
   level: number;
   expandable: boolean;
   category: CategoryWithParent;
-}
-
-class CategoryWithParent {
-
-  base: Category;
-  parent?: CategoryWithParent;
-  child?: CategoryWithParent;
-
-  constructor(base: Category) {
-    this.base = base;
-  }
-
 }
 
 @Component({
@@ -69,6 +58,7 @@ export class FilterByTypeComponent {
     database.currentItems.subscribe(data => this.dataSource.data = this.prepareDataForTree(data));
 
     this.checklistSelection.select(...this.nestedNodeMap.values());
+    this.emitChangedCategories();
   }
 
   prepareDataForTree(items: Item[]): ItemType[] {
@@ -206,7 +196,7 @@ export class FilterByTypeComponent {
 
     this.checkAllParentsSelection(node);
 
-    this.itemView.changedCategories((this.checklistSelection.selected.sort((a, b) => a.level - b.level)).map(se => se.category.base));
+    this.emitChangedCategories();
   }
 
   /** Toggle a leaf to-do item selection. Check all the parents to see if they changed */
@@ -214,7 +204,11 @@ export class FilterByTypeComponent {
     this.checklistSelection.toggle(node);
     this.checkAllParentsSelection(node);
 
-    this.itemView.changedCategories((this.checklistSelection.selected.sort((a, b) => a.level - b.level)).map(se => se.category.base));
+    this.emitChangedCategories();
+  }
+
+  emitChangedCategories() {
+    this.itemView.changedCategories((this.checklistSelection.selected.sort((a, b) => a.level - b.level)).map(se => se.category));
   }
 
   /* Checks all the parents when a leaf node is selected/unselected */

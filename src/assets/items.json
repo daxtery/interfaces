@@ -106,5 +106,44 @@
         "unitaryWeight": 500,
         "unitaryPrice": 21.99,
         "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81OhNS5Os6L._SL1440_.jpg"
+    },
+    {
+        "id": 8,
+        "name": "2% reduced fat milk",
+        "brand": "Gossner Premium Milk",
+        "category": {
+            "name": "Dairy",
+            "child": {
+                "name": "Milk",
+                "child": {
+                    "name": "Fat Milk"
+                }
+            }
+        },
+        "weightType": "L",
+        "unitaryWeight": 1,
+        "unitaryPrice": 3.49,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91EecG17HVL._SL1500_.jpg"
+    },
+    {
+        "id": 9,
+        "name": "yoggi líquido sabor morango",
+        "brand": "Nestle",
+        "category": {
+            "name": "Dairy",
+            "child": {
+                "name": "Yoggurt",
+                "child": {
+                    "name": "Strawberry",
+                    "child": {
+                        "name": "Lactose Free"
+                    }
+                }
+            }
+        },
+        "weightType": "L",
+        "unitaryWeight": 1,
+        "unitaryPrice": 3.49,
+        "pictureUrl": "https://driveimg4.intermarche.com/pt/Ressources/images/produit/zoom/E0824DD15C8B77F70D9EECF3EBEE36D7-nestle-iogurte-liquido-yoggi-sem-lactose-morango.jpg"
     }
 ]

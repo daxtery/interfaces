@@ -4,6 +4,7 @@ import { ItemViewService } from 'src/app/services/item-view.service';
 import { Category } from 'src/app/category';
 import { DatabaseService } from 'src/app/services/database.service';
 import { CartService } from 'src/app/services/cart.service';
+import { CategoryWithParent } from 'src/app/categoryWithParent';
 
 @Component({
   selector: 'app-items-view',
@@ -14,7 +15,7 @@ export class ItemsViewComponent implements OnInit {
 
   items: Item[] = [];
   itemsFromDataBase: Item[] = [];
-  categoriesAllowed: Category[] = [];
+  categoriesAllowed: CategoryWithParent[] = [];
   brandsAllowed: string[] = [];
 
   nbCols: number = 2;
@@ -33,13 +34,14 @@ export class ItemsViewComponent implements OnInit {
     database.currentItems.subscribe(items => this.items = this.itemsFromDataBase = items);
   }
 
-  public changeFilterByType(allowed: Category[]): void {
+  public changeFilterByType(allowed: CategoryWithParent[]): void {
     this.categoriesAllowed = allowed;
+    console.log('New categories are', allowed);
     this.filterNewItems();
   }
 
-  itemIsAllowedByCategories(item: Item, categories: Category[]): boolean {
-    return categories.some(c => Category.compatableWith(c, item.category));
+  itemIsAllowedByCategories(item: Item, categories: CategoryWithParent[]): boolean {
+    return categories.some(c => CategoryWithParent.intersects(c, item.category));
   }
 
   itemIsAllowedByBrands(item: Item, brands: string[]): boolean {
@@ -48,13 +50,16 @@ export class ItemsViewComponent implements OnInit {
 
   filterNewItems() {
     this.items = this.itemsFromDataBase.filter(item => {
-      return this.itemIsAllowedByBrands(item, this.brandsAllowed)
+      const isIt = this.itemIsAllowedByBrands(item, this.brandsAllowed)
         && this.itemIsAllowedByCategories(item, this.categoriesAllowed);
+      console.log('Filtering', item, 'brandsAre:', this.brandsAllowed, 'categoriesAre:', this.categoriesAllowed, isIt);
+      return isIt;
     });
   }
 
   public changeFilterByBrand(allowed: string[]): void {
     this.brandsAllowed = allowed;
+    console.log('New brands are', allowed);
     this.filterNewItems();
   }
 
