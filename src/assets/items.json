@@ -4,10 +4,10 @@
         "name": "Chicken Noodle Soup",
         "brand": "Amazon",
         "category": {
-            "names": [
-                "Fresh",
-                "Soup"
-            ]
+            "name": "Fresh",
+            "child": {
+                "name": "Soup"
+            }
         },
         "weightType": "g",
         "unitaryWeight": 200,
@@ -19,10 +19,10 @@
         "name": "Chicken Noodle Soup",
         "brand": "Campbell",
         "category": {
-            "names": [
-                "Frozen",
-                "Soup"
-            ]
+            "name": "Frozen",
+            "child": {
+                "name": "Soup"
+            }
         },
         "weightType": "g",
         "unitaryWeight": 120,
@@ -34,11 +34,13 @@
         "name": "Low Fat Milk",
         "brand": "Nestle",
         "category": {
-            "names": [
-                "Dairy",
-                "Milk",
-                "Low-Fat Milk"
-            ]
+            "name": "Dairy",
+            "child": {
+                "name": "Milk",
+                "child": {
+                    "name": "Low Fat Milk"
+                }
+            }
         },
         "weightType": "L",
         "unitaryWeight": 1,
@@ -50,10 +52,10 @@
         "name": "Pizza",
         "brand": "Mikey's",
         "category": {
-            "names": [
-                "Ready-Made",
-                "Pizza"
-            ]
+            "name": "Ready-Made",
+            "child": {
+                "name": "Pizza"
+            }
         },
         "weightType": "g",
         "unitaryWeight": 226,
@@ -65,10 +67,10 @@
         "name": "Pizza",
         "brand": "Digiorno",
         "category": {
-            "names": [
-                "Ready-Made",
-                "Pizza"
-            ]
+            "name": "Ready-Made",
+            "child": {
+                "name": "Pizza"
+            }
         },
         "weightType": "g",
         "unitaryWeight": 241,
@@ -80,10 +82,10 @@
         "name": "Pizza",
         "brand": "Red Baron",
         "category": {
-            "names": [
-                "Ready-Made",
-                "Pizza"
-            ]
+            "name": "Ready-Made",
+            "child": {
+                "name": "Pizza"
+            }
         },
         "weightType": "g",
         "unitaryWeight": 206,
@@ -95,10 +97,10 @@
         "name": "Pizza",
         "brand": "Gino's",
         "category": {
-            "names": [
-                "Ready-Made",
-                "Pizza"
-            ]
+            "name": "Ready-Made",
+            "child": {
+                "name": "Pizza"
+            }
         },
         "weightType": "g",
         "unitaryWeight": 500,

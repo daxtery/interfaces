@@ -34,8 +34,19 @@ export class DatabaseService {
       return item.name.toLowerCase().match(query.toLowerCase())
         || item.id === Number.parseInt(query, 10)
         || item.brand.toLowerCase().match(query.toLowerCase())
-        || item.category.names.some(name => name.toLowerCase().match(query.toLowerCase()));
+        || this.isACategoryName(query, item);
     });
+  }
+
+  isACategoryName(name: string, category: Category) {
+    let temp = category;
+
+    while (temp) {
+      if (temp.name.toLowerCase().match(name.toLowerCase())) { return true; }
+      temp = temp.child;
+    }
+
+    return false;
   }
 
 }

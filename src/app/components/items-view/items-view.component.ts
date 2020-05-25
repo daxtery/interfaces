@@ -14,6 +14,8 @@ export class ItemsViewComponent implements OnInit {
 
   items: Item[] = [];
   itemsFromDataBase: Item[] = [];
+  categoriesAllowed: Category[] = [];
+  brandsAllowed: string[] = [];
 
   nbCols: number = 2;
 
@@ -32,11 +34,28 @@ export class ItemsViewComponent implements OnInit {
   }
 
   public changeFilterByType(allowed: Category[]): void {
-    this.items = this.itemsFromDataBase.filter(item => true);
+    this.categoriesAllowed = allowed;
+    this.filterNewItems();
+  }
+
+  itemIsAllowedByCategories(item: Item, categories: Category[]): boolean {
+    return categories.some(c => Category.compatableWith(c, item.category));
+  }
+
+  itemIsAllowedByBrands(item: Item, brands: string[]): boolean {
+    return brands.some(b => item.brand === b);
+  }
+
+  filterNewItems() {
+    this.items = this.itemsFromDataBase.filter(item => {
+      return this.itemIsAllowedByBrands(item, this.brandsAllowed)
+        && this.itemIsAllowedByCategories(item, this.categoriesAllowed);
+    });
   }
 
   public changeFilterByBrand(allowed: string[]): void {
-    this.items = this.itemsFromDataBase.filter(item => allowed.includes(item.brand));
+    this.brandsAllowed = allowed;
+    this.filterNewItems();
   }
 
   public quantityOfItem(item: Item): number {

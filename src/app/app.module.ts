@@ -24,6 +24,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTreeModule } from '@angular/material/tree';
 
 
 
@@ -57,6 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
       MatFormFieldModule,
       MatInputModule,
       MatDialogModule,
+      MatTreeModule,
    ],
    providers: [],
    bootstrap: [
