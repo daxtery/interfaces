@@ -18,7 +18,7 @@ export class CartService {
     this.itemsAndQuantityInCartSource.pipe(pairwise()).subscribe(x => this.lastItemsAndQuantityInCartSource = x[0]);
   }
 
-  public addUnitOfItem(item: Item): void {
+  public addUnitOfItem(item: Item) {
 
     console.log('+1 to cart', item);
 
@@ -30,7 +30,7 @@ export class CartService {
     this.itemsAndQuantityInCartSource.next(temp);
   }
 
-  public removeUnitOfItem(item: Item): void {
+  public removeUnitOfItem(item: Item) {
 
     console.log('-1 from cart', item);
 
@@ -46,7 +46,7 @@ export class CartService {
     this.itemsAndQuantityInCartSource.next(temp);
   }
 
-  public removeItem(item: Item): void {
+  public removeItem(item: Item) {
 
     console.log('remove from cart', item);
 
@@ -63,6 +63,18 @@ export class CartService {
   public undoLastOperation() {
     console.log('Reverting to ', this.lastItemsAndQuantityInCartSource);
     this.itemsAndQuantityInCartSource.next(this.lastItemsAndQuantityInCartSource);
+    this.lastItemsAndQuantityInCartSource = null;
+  }
+
+  public canUndo(): boolean {
+    return this.lastItemsAndQuantityInCartSource !== null;
+  }
+
+  public getTotalCost(): number {
+
+    return Array.from(this.itemsAndQuantityInCartSource.value.entries(),
+      ([item, quantity]: [Item, number]) => item.unitaryPrice * quantity).reduce((acc, b) => acc + b, 0);
+
   }
 
 }

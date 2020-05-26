@@ -19,64 +19,52 @@ export class CartViewComponent implements OnInit {
 
   dataSource: CartViewItem[] = [];
 
-  columnsToDisplay = ['item', 'price', 'quantity'];
+  columnsToDisplay = ['name', 'brand', 'price', 'quantity'];
   expandedElement: CartViewItem | null;
   cart: CartService;
 
   constructor(cart: CartService) {
-
     this.cart = cart;
-
     cart.currentItemsAndQuantities.subscribe((i) => this.prepareDataToShow(i));
-
-    const i1 = {
-      brand: 'cool',
-      category: { name: 'Z' },
-      id: 10,
-      name: 'Dude',
-      pictureUrl: '...',
-      unitaryPrice: 100,
-      unitaryWeight: 100,
-      weightType: 'g'
-    };
-
-    cart.addUnitOfItem(i1);
-
-    cart.addUnitOfItem(i1);
-
-    const i2 = {
-      brand: 'bad',
-      category: { name: 'Y' },
-      id: 11,
-      name: 'Not cool',
-      pictureUrl: '...',
-      unitaryPrice: 54.0,
-      unitaryWeight: 11,
-      weightType: 'L'
-    };
-
-    cart.addUnitOfItem(i2);
   }
 
   ngOnInit() {
   }
 
   prepareDataToShow(itemsAndQuantities: Map<Item, number>) {
-    this.dataSource = Array.from(itemsAndQuantities.entries(), pair => (
-      {
-        item: pair[0],
-        price: pair[0].unitaryPrice * pair[1],
-        quantity: pair[1],
-      }
-    ));
+
+    this.dataSource = Array.from(itemsAndQuantities.entries(),
+      pair => new CartViewItem(pair[0], pair[1])
+    );
+
   }
 
   undoOnce() {
     this.cart.undoLastOperation();
   }
+
 }
 
-interface CartViewItem {
+class CartViewItem {
+
+  quantity: number;
   item: Item;
-  price: number;
+
+  constructor(item: Item, quantity: number) {
+    this.quantity = quantity;
+    this.item = item;
+  }
+
+  public get price(): number {
+    return this.item.unitaryPrice * this.quantity;
+  }
+
+  public get name(): string {
+    return this.item.name;
+  }
+
+  public get brand(): string {
+    return this.item.brand;
+  }
+
 }
