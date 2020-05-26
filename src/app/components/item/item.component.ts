@@ -19,11 +19,11 @@ export class ItemComponent implements OnInit {
   }
 
   addToCart() {
-    this.cart.addItem(this.item);
+    this.cart.addUnitOfItem(this.item);
   }
 
   removeFromCart() {
-    this.cart.removeItem(this.item);
+    this.cart.removeUnitOfItem(this.item);
   }
 
   ngOnInit() {
