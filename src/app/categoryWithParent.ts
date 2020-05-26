@@ -29,11 +29,9 @@ export class CategoryWithParent {
                 return false;
             } else if (!current.child && !currentP.child) {
                 return current.name === currentP.base.name;
+            } else if (current.name !== currentP.base.name) {
+                return false;
             } else {
-                // here they BOTH HAVE a child
-                if (current.name !== currentP.base.name) {
-                    return false;
-                }
                 current = current.child;
                 currentP = currentP.child;
             }
