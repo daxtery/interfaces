@@ -1,9 +1,9 @@
-<section fxLayout="row">
+<section class="topbar" fxLayout="row" fxLayoutAlign="space-around">
 
-    <app-search-bar placeholder='search here...' debounceTimer=500 (setValue)="filterResults($event)">
+    <app-search-bar fxFlex="60" placeholder='search here...' debounceTimer=500 (setValue)="filterResults($event)">
     </app-search-bar>
 
-    <app-cart-preview></app-cart-preview>
+    <app-cart-preview flFlex></app-cart-preview>
 
 </section>
 
