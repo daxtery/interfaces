@@ -55,10 +55,13 @@ export class FilterByTypeComponent {
     this.treeControl = new FlatTreeControl<ItemTypeFlatNode>(this.getLevel, this.isExpandable);
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-    database.currentItems.subscribe(data => this.dataSource.data = this.prepareDataForTree(data));
+    database.currentItems.subscribe(data => {
+      this.dataSource.data = this.prepareDataForTree(data);
 
-    this.checklistSelection.select(...this.nestedNodeMap.values());
-    this.emitChangedCategories();
+      this.checklistSelection.clear();
+      this.checklistSelection.select(...this.treeFlattener.flattenNodes(this.dataSource.data));
+      this.emitChangedCategories();
+    });
   }
 
   prepareDataForTree(items: Item[]): ItemType[] {
