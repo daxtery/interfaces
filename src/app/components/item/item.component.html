@@ -1,37 +1,45 @@
-<mat-card class="example-card">
+<mat-card class="example-card" fxLayout="column">
 
-  <mat-card-header>
-    <mat-card-title>{{this.item.name}} {{this.item.unitaryWeight}} {{this.item.weightType}}</mat-card-title>
-    <mat-card-subtitle>{{this.item.brand}}</mat-card-subtitle>
-  </mat-card-header>
-  
-  <img [src]=this.item.pictureUrl width="100" height="125">
+  <mat-card-title>{{this.item.name}} {{this.item.unitaryWeight}} {{this.item.weightType}}</mat-card-title>
+  <mat-card-subtitle>{{this.item.brand}}</mat-card-subtitle>
 
-  <mat-card-content class="merda2">
+  <mat-card-content>
 
-    <mat-list class="list-horizontal">
-      <div mat-list-item>
+    <img [src]=this.item.pictureUrl>
 
-        <p *ngIf="this.quantity == 0">{{this.item.unitaryPrice | currency:'EUR'}}</p>
+    <h1 flFlex *ngIf="this.quantity == 0">{{this.item.unitaryPrice | currency:'EUR'}}</h1>
 
-        <p *ngIf="this.quantity > 0" matTooltipPosition="before" matTooltip="{{this.quantity}} * {{this.item.unitaryPrice| currency:'EUR'}} =
+    <h1 flFlex *ngIf="this.quantity > 0" matTooltipPosition="before" matTooltip="{{this.quantity}} * {{this.item.unitaryPrice| currency:'EUR'}} =
           {{ this.quantity * this.item.unitaryPrice | currency:'EUR'}}">
-          {{this.item.unitaryPrice | currency:'EUR'}}
-        </p>
-
-      </div>
-
-    </mat-list>
+      {{this.item.unitaryPrice | currency:'EUR'}}
+    </h1>
 
   </mat-card-content>
 
   <mat-card-actions>
-    <button (click)="this.addToCart()" mat-button>+</button>
-    <button *ngIf="this.quantity > 0" mat-button>{{this.quantity}}</button>
-    <button *ngIf="this.quantity > 0" (click)="this.removeFromCart()" mat-button>-</button>
-  </mat-card-actions>
 
-  <mat-card-footer>
-  </mat-card-footer>
+    <div fxLayout="row">
+
+      <div class="quantifier">
+
+        <button (click)="this.addToCart()" mat-icon-button>
+          <mat-icon color="warn">
+            add_shopping_cart
+          </mat-icon>
+        </button>
+
+        <button style disabled mat-icon-button *ngIf="this.quantity > 0">{{this.quantity}}</button>
+
+        <button *ngIf="this.quantity > 0" (click)="this.removeFromCart()" mat-icon-button>
+          <mat-icon color="primary">
+            remove
+          </mat-icon>
+        </button>
+
+      </div>
+
+    </div>
+
+  </mat-card-actions>
 
 </mat-card>

@@ -10,10 +10,10 @@
     <app-filter-by-type></app-filter-by-type>
   </section>
 
-  <section fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+  <section fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" ngClass.gt-xs="ml-10">
 
     <ng-container *ngFor="let item of items">
-      <app-item fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" [item]=item
+      <app-item fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)" [item]=item
         [quantity]="this.quantityOfItem(item)"></app-item>
     </ng-container>
 
