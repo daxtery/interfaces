@@ -40,7 +40,12 @@ export class CartService {
 
     // there
     if (oldValue !== undefined) {
-      temp.set(item, --oldValue);
+      if (oldValue === 1) {
+        this.removeItem(item);
+        return;
+      } else {
+        temp.set(item, --oldValue);
+      }
     }
 
     this.itemsAndQuantityInCartSource.next(temp);
