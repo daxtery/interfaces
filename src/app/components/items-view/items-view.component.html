@@ -1,7 +1,22 @@
-<mat-grid-list [cols]="this.nbCols" rowHeight="1:1" (window:resize)="this.onResize($event)">
-  <div *ngFor='let item of items'>
-    <mat-grid-tile>
-      <app-item [item]=item [quantity]="this.quantityOfItem(item)"></app-item>
-    </mat-grid-tile>
-  </div>
-</mat-grid-list>
+<section fxLayout="row">
+
+  <section fxLayout="column">
+
+    <h2>Brand: </h2>
+    <app-filter-by-brand></app-filter-by-brand>
+
+    <br>
+    <h2>Type: </h2>
+    <app-filter-by-type></app-filter-by-type>
+  </section>
+
+  <section fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+
+    <ng-container *ngFor="let item of items">
+      <app-item fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" [item]=item
+        [quantity]="this.quantityOfItem(item)"></app-item>
+    </ng-container>
+
+  </section>
+
+</section>

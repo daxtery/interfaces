@@ -15,6 +15,7 @@ import { CartViewComponent } from './components/cart-view/cart-view.component';
 
 import { FormsModule } from '@angular/forms';
 
+import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -30,7 +31,11 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { HttpClientModule } from '@angular/common/http';
+
+import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 
 @NgModule({
    declarations: [
@@ -63,7 +68,10 @@ import { HttpClientModule } from '@angular/common/http';
       MatDialogModule,
       MatTreeModule,
       MatBadgeModule,
-      MatTableModule
+      MatTableModule,
+      FlexLayoutModule,
+      NgMatSearchBarModule,
+      MatButtonModule
    ],
    providers: [],
    bootstrap: [

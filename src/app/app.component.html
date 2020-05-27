@@ -1,11 +1,12 @@
-<app-search-bar debounceTimer=500 (setValue)="filterResults($event)">
-</app-search-bar>
+<section fxLayout="row">
 
-<app-cart-preview></app-cart-preview>
+    <app-search-bar placeholder='search here...' debounceTimer=500 (setValue)="filterResults($event)">
+    </app-search-bar>
 
-<app-filter-by-brand></app-filter-by-brand>
+    <app-cart-preview></app-cart-preview>
 
-<app-filter-by-type></app-filter-by-type>
+</section>
+
 <app-menu-bar></app-menu-bar>
 
 <router-outlet></router-outlet>
