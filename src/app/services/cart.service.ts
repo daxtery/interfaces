@@ -77,4 +77,11 @@ export class CartService {
 
   }
 
+  public getTotalQuantity(): number {
+
+    return Array.from(this.itemsAndQuantityInCartSource.value.entries(),
+      ([_, quantity]: [Item, number]) => quantity).reduce((acc, b) => acc + b, 0);
+
+  }
+
 }
