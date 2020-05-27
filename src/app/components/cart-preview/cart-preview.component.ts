@@ -10,17 +10,14 @@ import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
   templateUrl: './cart-preview.component.html',
   styleUrls: ['./cart-preview.component.css']
 })
-export class CartPreviewComponent implements OnInit {
+export class CartPreviewComponent {
 
   quantities: number;
 
   constructor(private route: ActivatedRoute, private router: Router, cart: CartService) {
     cart.currentItemsAndQuantities.subscribe((d) => this.updateToShowInBadge(d));
   }
-
-  ngOnInit() {
-  }
-
+  
   updateToShowInBadge(d: Map<Item, number>) {
     // the sum of all units
     this.quantities = [...d.values()].reduce((a, b) => a + b, 0);
