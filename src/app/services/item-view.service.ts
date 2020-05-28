@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Category } from '../category';
-import { CategoryWithParent } from '../categoryWithParent';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,7 @@ export class ItemViewService {
   private brandsSource = new BehaviorSubject<string[]>([]);
   currentBrands = this.brandsSource.asObservable();
 
-  private categoriesSource = new BehaviorSubject<CategoryWithParent[]>([]);
+  private categoriesSource = new BehaviorSubject<Category[]>([]);
   currentCategories = this.categoriesSource.asObservable();
 
   constructor() {
@@ -22,7 +21,7 @@ export class ItemViewService {
     this.brandsSource.next(allowed);
   }
 
-  changedCategories(allowed: CategoryWithParent[]): void {
+  changedCategories(allowed: Category[]): void {
     this.categoriesSource.next(allowed);
   }
 }

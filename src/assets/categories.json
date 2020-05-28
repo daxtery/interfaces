@@ -1,0 +1,68 @@
+[
+    {
+        "name": "Fresh",
+        "imageURL": "",
+        "children": [
+            {
+                "name": "Soup",
+                "imageURL": ""
+            }
+        ]
+    },
+    {
+        "name": "Frozen",
+        "imageURL": "",
+        "children": [
+            {
+                "name": "Soup",
+                "imageURL": ""
+            }
+        ]
+    },
+    {
+        "name": "Dairy",
+        "imageURL": "",
+        "children": [
+            {
+                "name": "Milk",
+                "imageURL": "",
+                "children": [
+                    {
+                        "name": "Low Fat Milk",
+                        "imageURL": ""
+                    },
+                    {
+                        "name": "Fat Milk",
+                        "imageURL": ""
+                    }
+                ]
+            },
+            {
+                "name": "Yoggurt",
+                "imageURL": "",
+                "children": [
+                    {
+                        "name": "Strawberry",
+                        "imageURL": "",
+                        "children": [
+                            {
+                                "name": "Lactose Free",
+                                "imageURL": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Ready-Made",
+        "imageURL": "",
+        "children": [
+            {
+                "name": "Pizza",
+                "imageURL": ""
+            }
+        ]
+    }
+]

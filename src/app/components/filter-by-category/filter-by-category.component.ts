@@ -7,21 +7,21 @@ import { ItemViewService } from 'src/app/services/item-view.service';
 import { DatabaseService } from 'src/app/services/database.service';
 import { Category } from 'src/app/category';
 import { Item } from 'src/app/item';
-import { CategoryWithParent } from 'src/app/categoryWithParent';
+import { ItemView } from 'src/app/itemView';
 
 /** Flat to-do item node with expandable and level information */
 
 class ItemType {
   children: ItemType[];
   item: string;
-  category: CategoryWithParent;
+  category: Category;
 }
 
 class ItemTypeFlatNode {
   item: string;
   level: number;
   expandable: boolean;
-  category: CategoryWithParent;
+  category: Category;
 }
 
 @Component({
@@ -64,68 +64,30 @@ export class FilterByCategoryComponent {
     });
   }
 
-  prepareDataForTree(items: Item[]): ItemType[] {
-    const categories = items.map(item => item.category);
+  toItemCategoryNode(category: Category) {
 
-    const categoriesDepth = categories.map(c => {
-      let depth = 1;
+    console.log('toItemCategoryNode', category);
 
-      while (c.child) {
-        depth++;
-        c = c.child;
-      }
+    const newItemCategoryNode = new ItemType();
+    newItemCategoryNode.category = category;
+    newItemCategoryNode.item = category.name;
 
-      return depth;
-    });
-
-    const categoriesWithParent = CategoryWithParent.mapFrom(categories);
-
-    const maxDepth = Math.max(...categoriesDepth);
-    const numberOfItems = categoriesDepth.length;
-
-    const baseItems: ItemType[] = [];
-
-    // let's do the base ones:
-    for (let categoryIndex = 0; categoryIndex < numberOfItems; categoryIndex++) {
-      const element = categoriesWithParent[categoryIndex];
-
-      if (baseItems.find((i) => i.item === element.base.name) === undefined) {
-        baseItems.push({ children: [], item: element.base.name, category: element });
-      }
-
+    if (category.children !== undefined) {
+      newItemCategoryNode.children = category.children.map(c => this.toItemCategoryNode(c));
+    } else {
+      newItemCategoryNode.children = [];
     }
 
-    let lastItems: ItemType[] = baseItems;
+    return newItemCategoryNode;
+  }
 
-    // now we'll do the other levels
-    for (let depth = 1; depth < maxDepth; depth++) {
-      const theseItems: ItemType[] = [];
-
-      for (let categoryIndex = 0; categoryIndex < numberOfItems; categoryIndex++) {
-        const element = categoriesWithParent[categoryIndex];
-        let depthElement = element;
-
-        for (let d = 0; d < depth; d++) {
-          if (depthElement === undefined) { break; }
-          depthElement = depthElement.child;
-        }
-
-        if (depthElement === undefined) { continue; }
-
-        const fatherType = lastItems.find(i => i.item === depthElement.parent.base.name);
-
-        if (fatherType.children.find(i => i.item === depthElement.base.name) === undefined) {
-          const newItem = { children: [], item: depthElement.base.name, category: depthElement };
-          theseItems.push(newItem);
-          fatherType.children.push(newItem);
-        }
-
-      }
-
-      lastItems = theseItems;
+  prepareDataForTree(items: ItemView[]): ItemType[] {
+    return [...new Set(items.map(item => {
+      let current = item.category;
+      while (current.parent) { current = current.parent; }
+      return current;
     }
-
-    return baseItems;
+    ))].map(c => this.toItemCategoryNode(c));
   }
 
   getLevel = (node: ItemTypeFlatNode) => node.level;
@@ -196,7 +158,10 @@ export class FilterByCategoryComponent {
   }
 
   emitChangedCategories() {
-    this.itemView.changedCategories((this.checklistSelection.selected.sort((a, b) => a.level - b.level)).map(se => se.category));
+    this.itemView.changedCategories(
+      (this.checklistSelection.selected.filter(s => !s.expandable)
+        .sort((a, b) => a.level - b.level))
+        .map(se => se.category));
   }
 
   /* Checks all the parents when a leaf node is selected/unselected */

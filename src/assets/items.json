@@ -3,12 +3,10 @@
         "id": 1,
         "name": "Chicken Noodle Soup",
         "brand": "Amazon",
-        "category": {
-            "name": "Fresh",
-            "child": {
-                "name": "Soup"
-            }
-        },
+        "categoryNames": [
+            "Fresh",
+            "Soup"
+        ],
         "weightType": "g",
         "unitaryWeight": 200,
         "unitaryPrice": 3.29,
@@ -18,12 +16,10 @@
         "id": 2,
         "name": "Chicken Noodle Soup",
         "brand": "Campbell",
-        "category": {
-            "name": "Frozen",
-            "child": {
-                "name": "Soup"
-            }
-        },
+        "categoryNames": [
+            "Frozen",
+            "Soup"
+        ],
         "weightType": "g",
         "unitaryWeight": 120,
         "unitaryPrice": 2.29,
@@ -33,15 +29,11 @@
         "id": 3,
         "name": "Low Fat Milk",
         "brand": "Nestle",
-        "category": {
-            "name": "Dairy",
-            "child": {
-                "name": "Milk",
-                "child": {
-                    "name": "Low Fat Milk"
-                }
-            }
-        },
+        "categoryNames": [
+            "Dairy",
+            "Milk",
+            "Low Fat Milk"
+        ],
         "weightType": "L",
         "unitaryWeight": 1,
         "unitaryPrice": 1.19,
@@ -51,12 +43,10 @@
         "id": 4,
         "name": "Pizza",
         "brand": "Mikey's",
-        "category": {
-            "name": "Ready-Made",
-            "child": {
-                "name": "Pizza"
-            }
-        },
+        "categoryNames": [
+            "Ready-Made",
+            "Pizza"
+        ],
         "weightType": "g",
         "unitaryWeight": 226,
         "unitaryPrice": 13.99,
@@ -66,12 +56,10 @@
         "id": 5,
         "name": "Pizza",
         "brand": "Digiorno",
-        "category": {
-            "name": "Ready-Made",
-            "child": {
-                "name": "Pizza"
-            }
-        },
+        "categoryNames": [
+            "Ready-Made",
+            "Pizza"
+        ],
         "weightType": "g",
         "unitaryWeight": 241,
         "unitaryPrice": 15.99,
@@ -81,12 +69,10 @@
         "id": 6,
         "name": "Pizza",
         "brand": "Red Baron",
-        "category": {
-            "name": "Ready-Made",
-            "child": {
-                "name": "Pizza"
-            }
-        },
+        "categoryNames": [
+            "Ready-Made",
+            "Pizza"
+        ],
         "weightType": "g",
         "unitaryWeight": 206,
         "unitaryPrice": 11.99,
@@ -96,12 +82,10 @@
         "id": 7,
         "name": "Pizza",
         "brand": "Gino's",
-        "category": {
-            "name": "Ready-Made",
-            "child": {
-                "name": "Pizza"
-            }
-        },
+        "categoryNames": [
+            "Ready-Made",
+            "Pizza"
+        ],
         "weightType": "g",
         "unitaryWeight": 500,
         "unitaryPrice": 21.99,
@@ -111,15 +95,11 @@
         "id": 8,
         "name": "2% reduced fat milk",
         "brand": "Gossner Premium Milk",
-        "category": {
-            "name": "Dairy",
-            "child": {
-                "name": "Milk",
-                "child": {
-                    "name": "Fat Milk"
-                }
-            }
-        },
+        "categoryNames": [
+            "Dairy",
+            "Milk",
+            "Fat Milk"
+        ],
         "weightType": "L",
         "unitaryWeight": 1,
         "unitaryPrice": 3.49,
@@ -129,18 +109,12 @@
         "id": 9,
         "name": "yoggi líquido sabor morango",
         "brand": "Nestle",
-        "category": {
-            "name": "Dairy",
-            "child": {
-                "name": "Yoggurt",
-                "child": {
-                    "name": "Strawberry",
-                    "child": {
-                        "name": "Lactose Free"
-                    }
-                }
-            }
-        },
+        "categoryNames": [
+            "Dairy",
+            "Yoggurt",
+            "Strawberry",
+            "Lactose Free"
+        ],
         "weightType": "L",
         "unitaryWeight": 1,
         "unitaryPrice": 3.49,

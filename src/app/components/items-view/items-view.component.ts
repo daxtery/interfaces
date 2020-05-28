@@ -4,29 +4,19 @@ import { ItemViewService } from 'src/app/services/item-view.service';
 import { Category } from 'src/app/category';
 import { DatabaseService } from 'src/app/services/database.service';
 import { CartService } from 'src/app/services/cart.service';
-import { CategoryWithParent } from 'src/app/categoryWithParent';
+import { ItemView } from 'src/app/itemView';
 
 @Component({
   selector: 'app-items-view',
   templateUrl: './items-view.component.html',
   styleUrls: ['./items-view.component.css']
 })
-export class ItemsViewComponent implements OnInit {
+export class ItemsViewComponent {
 
-  items: Item[] = [];
-  itemsFromDataBase: Item[] = [];
-  categoriesAllowed: CategoryWithParent[] = [];
+  items: ItemView[] = [];
+  itemsFromDataBase: ItemView[] = [];
+  categoriesAllowed: Category[] = [];
   brandsAllowed: string[] = [];
-
-  nbCols: number = 2;
-
-  ngOnInit() {
-    this.nbCols = (window.innerWidth <= 400) ? 1 : 6;
-  }
-
-  onResize(event) {
-    this.nbCols = (event.target.innerWidth <= 400) ? 1 : 6;
-  }
 
   constructor(private cart: CartService, service: ItemViewService, database: DatabaseService) {
     service.currentBrands.subscribe(brands => this.changeFilterByBrand(brands));
@@ -34,17 +24,27 @@ export class ItemsViewComponent implements OnInit {
     database.currentItems.subscribe(items => this.items = this.itemsFromDataBase = items);
   }
 
-  public changeFilterByType(allowed: CategoryWithParent[]): void {
+  public changeFilterByType(allowed: Category[]): void {
     this.categoriesAllowed = allowed;
     console.log('New categories are', allowed);
     this.filterNewItems();
   }
 
-  itemIsAllowedByCategories(item: Item, categories: CategoryWithParent[]): boolean {
-    return categories.some(c => CategoryWithParent.intersects(c, item.category));
+  categoriesAreTheSameDeep(allowed: Category, fromItem: Category): boolean {
+    if (allowed === fromItem) { return true; }
+
+    if (fromItem.children) {
+      return fromItem.children.find(c => this.categoriesAreTheSameDeep(allowed, c)) !== undefined;
+    }
+
+    return false;
   }
 
-  itemIsAllowedByBrands(item: Item, brands: string[]): boolean {
+  itemIsAllowedByCategories(item: ItemView, categories: Category[]): boolean {
+    return categories.some(c => this.categoriesAreTheSameDeep(c, item.category));
+  }
+
+  itemIsAllowedByBrands(item: ItemView, brands: string[]): boolean {
     return brands.some(b => item.brand === b);
   }
 
@@ -63,7 +63,7 @@ export class ItemsViewComponent implements OnInit {
     this.filterNewItems();
   }
 
-  public quantityOfItem(item: Item): number {
+  public quantityOfItem(item: ItemView): number {
     return this.cart.quantityOfItem(item);
   }
 
