@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Item } from 'src/app/item';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CartItem } from 'src/app/cartItem';
 
 @Component({
   selector: 'app-cart-view',
@@ -15,12 +16,12 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ]),
   ]
 })
-export class CartViewComponent implements OnInit {
+export class CartViewComponent {
 
-  dataSource: CartViewItem[] = [];
+  dataSource: CartItem[] = [];
 
   columnsToDisplay = ['name', 'brand', 'price', 'quantity'];
-  expandedElement: CartViewItem | null;
+  expandedElement: CartItem | null;
   cart: CartService;
 
   constructor(cart: CartService) {
@@ -28,43 +29,12 @@ export class CartViewComponent implements OnInit {
     cart.currentItemsAndQuantities.subscribe((i) => this.prepareDataToShow(i));
   }
 
-  ngOnInit() {
-  }
-
-  prepareDataToShow(itemsAndQuantities: Map<Item, number>) {
-
-    this.dataSource = Array.from(itemsAndQuantities.entries(),
-      pair => new CartViewItem(pair[0], pair[1])
-    );
-
+  prepareDataToShow(itemsAndQuantities: Map<Item, CartItem>) {
+    this.dataSource = Array.from(itemsAndQuantities.values());
   }
 
   undoOnce() {
     this.cart.undoLastOperation();
-  }
-
-}
-
-class CartViewItem {
-
-  quantity: number;
-  item: Item;
-
-  constructor(item: Item, quantity: number) {
-    this.quantity = quantity;
-    this.item = item;
-  }
-
-  public get price(): number {
-    return this.item.unitaryPrice * this.quantity;
-  }
-
-  public get name(): string {
-    return this.item.name;
-  }
-
-  public get brand(): string {
-    return this.item.brand;
   }
 
 }

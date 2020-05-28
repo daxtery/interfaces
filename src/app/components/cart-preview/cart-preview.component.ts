@@ -15,12 +15,7 @@ export class CartPreviewComponent {
   quantities: number;
 
   constructor(private route: ActivatedRoute, private router: Router, cart: CartService) {
-    cart.currentItemsAndQuantities.subscribe((d) => this.updateToShowInBadge(d));
-  }
-  
-  updateToShowInBadge(d: Map<Item, number>) {
-    // the sum of all units
-    this.quantities = [...d.values()].reduce((a, b) => a + b, 0);
+    cart.currentItemsAndQuantities.subscribe((_) => this.quantities = cart.numberOfItems());
   }
 
   goToCart() {

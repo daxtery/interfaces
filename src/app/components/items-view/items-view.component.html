@@ -13,8 +13,7 @@
   <section fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" ngClass.gt-xs="ml-10">
 
     <ng-container *ngFor="let item of items">
-      <app-item fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)" [item]=item
-        [quantity]="this.quantityOfItem(item)"></app-item>
+      <app-item fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)" [item]=item></app-item>
     </ng-container>
 
   </section>

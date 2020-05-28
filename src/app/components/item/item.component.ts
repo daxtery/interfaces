@@ -11,11 +11,12 @@ import { FormControl } from '@angular/forms';
 export class ItemComponent implements OnInit {
 
   @Input() item: Item;
-  @Input() quantity: number;
+  cart: CartService;
 
   message = new FormControl('Info about the action');
 
-  constructor(private cart: CartService) {
+  constructor(cart: CartService) {
+    this.cart = cart;
   }
 
   addToCart() {

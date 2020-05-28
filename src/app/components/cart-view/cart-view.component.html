@@ -23,8 +23,9 @@
   <!-- Price Column -->
   <ng-container matColumnDef="price">
     <th mat-header-cell *matHeaderCellDef> Price </th>
-    <td mat-cell *matCellDef="let element"> {{element.item.unitaryPrice * element.quantity| currency:'EUR' }} </td>
-    <td mat-footer-cell *matFooterCellDef> {{this.cart.getTotalCost() | currency:'EUR'}} </td>
+    <td mat-cell *matCellDef="let element" matTooltipPosition="before" matTooltip="{{element.quantity}} * {{element.item.unitaryPrice| currency:'EUR'}}">
+      {{element.price| currency:'EUR' }} </td>
+    <td mat-footer-cell *matFooterCellDef> {{this.cart.priceTotal() | currency:'EUR'}} </td>
   </ng-container>
 
   <!-- Quantity Column -->
@@ -42,7 +43,7 @@
         <mat-icon (click)="this.cart.removeItem(element.item)">close</mat-icon>
       </button>
     </td>
-    <td mat-footer-cell *matFooterCellDef>{{ this.cart.getTotalQuantity() }}
+    <td mat-footer-cell *matFooterCellDef>{{ this.cart.numberOfItems() }}
     <td>
   </ng-container>
 

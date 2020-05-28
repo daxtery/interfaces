@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Item } from '../item';
 import { BehaviorSubject, range } from 'rxjs';
 import { last, filter, pairwise, skip, distinctUntilChanged } from 'rxjs/operators';
+import { CartItem } from '../cartItem';
 
 
 @Injectable({
@@ -9,9 +10,9 @@ import { last, filter, pairwise, skip, distinctUntilChanged } from 'rxjs/operato
 })
 export class CartService {
 
-  private lastItemsAndQuantityInCartSource: Map<Item, number> = new Map<Item, number>();
+  private lastItemsAndQuantityInCartSource: Map<Item, CartItem> = new Map<Item, CartItem>();
 
-  private itemsAndQuantityInCartSource = new BehaviorSubject<Map<Item, number>>(new Map<Item, number>());
+  private itemsAndQuantityInCartSource = new BehaviorSubject<Map<Item, CartItem>>(new Map<Item, CartItem>());
   currentItemsAndQuantities = this.itemsAndQuantityInCartSource.asObservable();
 
   constructor() {
@@ -22,10 +23,11 @@ export class CartService {
 
     console.log('+1 to cart', item);
 
-    const temp = new Map<Item, number>(this.itemsAndQuantityInCartSource.value.entries());
+    const temp = new Map<Item, CartItem>(this.itemsAndQuantityInCartSource.value.entries());
 
-    let oldValue = temp.get(item) || 0;
-    temp.set(item, ++oldValue);
+    const cartItem = temp.get(item) || new CartItem(item, 0);
+    cartItem.quantity++;
+    temp.set(item, cartItem);
 
     this.itemsAndQuantityInCartSource.next(temp);
   }
@@ -34,17 +36,18 @@ export class CartService {
 
     console.log('-1 from cart', item);
 
-    const temp = new Map<Item, number>(this.itemsAndQuantityInCartSource.value.entries());
+    const temp = new Map<Item, CartItem>(this.itemsAndQuantityInCartSource.value.entries());
 
-    let oldValue = temp.get(item);
+    const oldValue = temp.get(item);
 
     // there
     if (oldValue !== undefined) {
-      if (oldValue === 1) {
+      if (oldValue.quantity === 1) {
         this.removeItem(item);
         return;
       } else {
-        temp.set(item, --oldValue);
+        oldValue.quantity--;
+        temp.set(item, oldValue);
       }
     }
 
@@ -55,14 +58,14 @@ export class CartService {
 
     console.log('remove from cart', item);
 
-    const temp = new Map<Item, number>(this.itemsAndQuantityInCartSource.value.entries());
+    const temp = new Map<Item, CartItem>(this.itemsAndQuantityInCartSource.value.entries());
     temp.delete(item);
 
     this.itemsAndQuantityInCartSource.next(temp);
   }
 
   public quantityOfItem(item: Item): number {
-    return this.itemsAndQuantityInCartSource.value.get(item) || 0;
+    return this.itemsAndQuantityInCartSource.value.get(item)?.quantity || 0;
   }
 
   public undoLastOperation() {
@@ -75,18 +78,22 @@ export class CartService {
     return this.lastItemsAndQuantityInCartSource !== null;
   }
 
-  public getTotalCost(): number {
+  public priceTotal(): number {
 
     return Array.from(this.itemsAndQuantityInCartSource.value.entries(),
-      ([item, quantity]: [Item, number]) => item.unitaryPrice * quantity).reduce((acc, b) => acc + b, 0);
+      ([_, cartItem]: [Item, CartItem]) => cartItem.price).reduce((acc, b) => acc + b, 0);
 
   }
 
-  public getTotalQuantity(): number {
+  public numberOfItems(): number {
 
     return Array.from(this.itemsAndQuantityInCartSource.value.entries(),
-      ([_, quantity]: [Item, number]) => quantity).reduce((acc, b) => acc + b, 0);
+      ([_, cartItem]: [Item, CartItem]) => cartItem.quantity).reduce((acc, b) => acc + b, 0);
 
+  }
+
+  public priceOf(item: Item): number {
+    return this.itemsAndQuantityInCartSource.value.get(item)?.price || 0;
   }
 
 }
