@@ -11,13 +11,13 @@ import { CategoryWithParent } from 'src/app/categoryWithParent';
 
 /** Flat to-do item node with expandable and level information */
 
-export class ItemType {
+class ItemType {
   children: ItemType[];
   item: string;
   category: CategoryWithParent;
 }
 
-export class ItemTypeFlatNode {
+class ItemTypeFlatNode {
   item: string;
   level: number;
   expandable: boolean;
@@ -26,11 +26,11 @@ export class ItemTypeFlatNode {
 
 @Component({
   selector: 'app-filter-by-type',
-  templateUrl: './filter-by-type.component.html',
-  styleUrls: ['./filter-by-type.component.css'],
+  templateUrl: './filter-by-category.component.html',
+  styleUrls: ['./filter-by-category.component.css'],
   providers: []
 })
-export class FilterByTypeComponent {
+export class FilterByCategoryComponent {
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<ItemTypeFlatNode, ItemType>();
 
@@ -78,22 +78,7 @@ export class FilterByTypeComponent {
       return depth;
     });
 
-    const categoriesWithParent = categories.map(c => {
-
-      let currentWParent = new CategoryWithParent(c);
-      const first = currentWParent;
-      let current = c;
-
-      while (current.child) {
-        currentWParent.child = new CategoryWithParent(current.child);
-        currentWParent.child.parent = currentWParent;
-
-        current = current.child;
-        currentWParent = currentWParent.child;
-      }
-
-      return first;
-    });
+    const categoriesWithParent = CategoryWithParent.mapFrom(categories);
 
     const maxDepth = Math.max(...categoriesDepth);
     const numberOfItems = categoriesDepth.length;
@@ -149,7 +134,7 @@ export class FilterByTypeComponent {
 
   getChildren = (node: ItemType): ItemType[] => node.children;
 
-  hasChild = (_: number, _nodeData: ItemTypeFlatNode) => _nodeData.expandable;
+  hasChild = (_: number, nodeData: ItemTypeFlatNode) => nodeData.expandable;
 
   /**
    * Transformer to convert nested node to flat node. Record the nodes in maps for later use.

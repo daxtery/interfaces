@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { FilterByBrandComponent } from './components/filter-by-brand/filter-by-brand.component';
-import { FilterByTypeComponent } from './components/filter-by-type/filter-by-type.component';
+import { FilterByCategoryComponent } from './components/filter-by-category/filter-by-category.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ItemsViewComponent } from './components/items-view/items-view.component';
 import { ItemComponent } from './components/item/item.component';
@@ -42,7 +42,7 @@ import { NgMatSearchBarModule } from 'ng-mat-search-bar';
       AppComponent,
       MenuBarComponent,
       FilterByBrandComponent,
-      FilterByTypeComponent,
+      FilterByCategoryComponent,
       SearchBarComponent,
       ItemsViewComponent,
       ItemComponent,
