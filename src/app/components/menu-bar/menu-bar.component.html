@@ -1,5 +1,13 @@
 <mat-tab-group>
-  <mat-tab>
+
+  <mat-tab *ngFor="let category of categories">
+    <ng-template mat-tab-label>
+      <mat-icon [svgIcon]="this.svgIconNames.get(category)">
+      </mat-icon> {{category.name}}
+    </ng-template>
+  </mat-tab>
+
+  <!-- <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon svgIcon="all_of_me"></mat-icon> ALL
     </ng-template>
@@ -8,7 +16,7 @@
     <ng-template mat-tab-label>
       Ready-Made
     </ng-template>
-    
+
     <mat-tab-group>
       <mat-tab>
         <ng-template mat-tab-label>
@@ -22,5 +30,5 @@
       </mat-tab>
     </mat-tab-group>
 
-  </mat-tab>
+  </mat-tab> -->
 </mat-tab-group>

@@ -66,8 +66,6 @@ export class FilterByCategoryComponent {
 
   toItemCategoryNode(category: Category) {
 
-    console.log('toItemCategoryNode', category);
-
     const newItemCategoryNode = new ItemType();
     newItemCategoryNode.category = category;
     newItemCategoryNode.item = category.name;
