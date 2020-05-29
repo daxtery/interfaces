@@ -1,9 +1,13 @@
 <section class="topbar" fxLayout="row" fxLayoutAlign="space-around">
 
+    <button mat-button mat-icon-button>
+        <mat-icon (click)="this.goToBase()">home</mat-icon>
+    </button>
+
     <app-search-bar fxFlex="60" placeholder='search here...' debounceTimer=500>
     </app-search-bar>
 
-    <app-cart-preview flFlex></app-cart-preview>
+    <app-cart-preview></app-cart-preview>
 
 </section>
 

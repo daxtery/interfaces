@@ -1,0 +1,7 @@
+::ng-deep .mat-tab-labels > .mat-tab-label:first-child {
+  display: none;
+}
+
+::ng-deep .mat-tab-label-active {
+  color: red !important;
+}

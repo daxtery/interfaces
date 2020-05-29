@@ -1,23 +1,28 @@
-<ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: this.categories }"></ng-container>
+<ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: this.categories}"></ng-container>
 
 <ng-template #recursiveListTmpl let-list="list" let-c="c">
-  <mat-tab-group>
+  <mat-tab-group mat-stretch-tabs (selectedTabChange)="clickedTab(c, $event)">
+
+    <mat-tab></mat-tab>
 
     <mat-tab *ngIf='c && list.length > 0'>
       <ng-template mat-tab-label>
-        <mat-icon>add</mat-icon>
-        <span (click)="this.searchForCategory(c)">All of {{ c.name }}</span>
+        <mat-icon [svgIcon]="this.svgIconNames.get(c)"></mat-icon>
+        All of {{ c.name }}
       </ng-template>
     </mat-tab>
 
-    <mat-tab *ngFor="let item of list">
+    <mat-tab *ngFor="let item of list; let idx = index">
       <ng-template mat-tab-label>
-        <mat-icon>add</mat-icon>
-        <span *ngIf='item.children'>{{ item.name }}</span>
-        <span *ngIf='!item.children'(click)="this.searchForCategory(item)">{{ item.name }}</span>
+
+        <mat-icon [svgIcon]="this.svgIconNames.get(item)"></mat-icon>
+        {{ item.name }}
+
+        <mat-icon *ngIf='item.children'>expand_more</mat-icon>
+
       </ng-template>
       <ng-template matTabContent>
-        <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: item.children || [], c: item }">
+        <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: item.children || [], c: item}">
         </ng-container>
       </ng-template>
     </mat-tab>

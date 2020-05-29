@@ -28,7 +28,7 @@
           </mat-icon>
         </button>
 
-        <button *ngIf="this.cart.quantityOfItem(item) > 0" style disabled
+        <button *ngIf="this.cart.quantityOfItem(item) > 0" disabled
           mat-icon-button>{{this.cart.quantityOfItem(item)}}</button>
 
         <button *ngIf="this.cart.quantityOfItem(item) > 0" (click)="this.removeFromCart()" mat-icon-button>

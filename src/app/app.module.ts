@@ -35,8 +35,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { NgMatSearchBarModule } from 'ng-mat-search-bar';
-
 @NgModule({
    declarations: [
       AppComponent,
@@ -70,8 +68,7 @@ import { NgMatSearchBarModule } from 'ng-mat-search-bar';
       MatBadgeModule,
       MatTableModule,
       FlexLayoutModule,
-      NgMatSearchBarModule,
-      MatButtonModule
+      MatButtonModule,
    ],
    providers: [],
    bootstrap: [

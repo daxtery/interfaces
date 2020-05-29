@@ -4,6 +4,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DatabaseService } from 'src/app/services/database.service';
 import { Category } from 'src/app/category';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-bar',
@@ -15,7 +16,11 @@ export class MenuBarComponent implements OnInit {
   categories: Category[];
   svgIconNames: Map<Category, string> = new Map<Category, string>();
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private database: DatabaseService) {
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+    private database: DatabaseService,
+    private router: Router) {
 
   }
 
@@ -47,6 +52,21 @@ export class MenuBarComponent implements OnInit {
       if (category.children) {
         this.populateSVGIcons(category.children);
       }
+    }
+  }
+
+  clickedTab(category: Category | undefined, event: { index: number; }) {
+    if (!category) { return; }
+
+    // have to this because we are using an invisible tab to hold the "selected" by default.
+    const index = event.index - 1;
+
+    if (index === 0) {
+      this.router.navigate(['']);
+      this.searchForCategory(category);
+    } else if (!category.children[index - 1].children) {
+      this.router.navigate(['']);
+      this.searchForCategory(category.children[index - 1]);
     }
   }
 }

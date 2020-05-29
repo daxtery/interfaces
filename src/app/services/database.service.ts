@@ -54,7 +54,7 @@ export class DatabaseService {
       category = possibleCategories.find(c => c.name === name);
 
       if (category === undefined) {
-        console.log('Broke @', name, ' possible categories are:', possibleCategories);
+        console.error('Broke @', name, ' possible categories are:', possibleCategories);
         break;
       }
 
@@ -63,7 +63,7 @@ export class DatabaseService {
 
     if (category === undefined) {
 
-      console.log('Category not found. Given names were: ', categoryNames);
+      console.error('Category not found. Given names were: ', categoryNames);
 
       return null;
     }
@@ -89,7 +89,6 @@ export class DatabaseService {
   }
 
   searchInItemsByCategory(category: Category): ItemView[] {
-    console.log('hi', category);
     return this.itemViews.filter(item => {
       let current = item.category;
 

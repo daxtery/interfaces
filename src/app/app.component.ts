@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from './services/database.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,12 @@ import { DatabaseService } from './services/database.service';
 export class AppComponent {
   title = 'interfaces';
 
-  database: DatabaseService;
+  constructor(private database: DatabaseService, private router: Router){
+  }
 
-  constructor(database: DatabaseService){
-    this.database = database;
+  goToBase(){
+    this.router.navigate(['']);
+    this.database.searchedInBox('');
   }
 
 }

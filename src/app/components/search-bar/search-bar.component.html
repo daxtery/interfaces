@@ -1,6 +1,6 @@
 <mat-form-field class="example-full-width">
     <mat-label>Your search</mat-label>
-    <input (keydown.enter)="this.updateSearch()" matInput type="text" placeholder="Ex: banana" [(ngModel)]="search">
+    <input (keydown.enter)="this.updateSearch()" matInput type="text" placeholder="Ex: milk" [(ngModel)]="search">
     <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
         <mat-icon>close</mat-icon>
     </button>
