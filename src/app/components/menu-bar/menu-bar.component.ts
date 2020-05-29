@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -10,15 +10,23 @@ import { Category } from 'src/app/category';
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.css']
 })
-export class MenuBarComponent {
+export class MenuBarComponent implements OnInit {
 
   categories: Category[];
   svgIconNames: Map<Category, string> = new Map<Category, string>();
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, database: DatabaseService) {
-    const categories = database.categories;
-    this.populateSVGIcons(categories);
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private database: DatabaseService) {
+
+  }
+
+  searchForCategory(category: Category) {
+    this.database.searchedInMenu(category);
+  }
+
+  ngOnInit(): void {
+    const categories = this.database.categories;
     this.categories = categories;
+    this.populateSVGIcons(this.categories);
   }
 
   nameFromCategory(category: Category) {

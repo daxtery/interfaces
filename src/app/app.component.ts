@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatabaseService } from './services/database.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'interfaces';
-  query: string;
 
-  public filterResults(query: string): void {
-    this.query = query;
+  database: DatabaseService;
+
+  constructor(database: DatabaseService){
+    this.database = database;
   }
+
 }

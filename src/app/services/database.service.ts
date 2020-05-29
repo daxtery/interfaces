@@ -89,7 +89,19 @@ export class DatabaseService {
   }
 
   searchInItemsByCategory(category: Category): ItemView[] {
-    return this.itemViews.filter(item => item.category === category);
+    console.log('hi', category);
+    return this.itemViews.filter(item => {
+      let current = item.category;
+
+      while (current) {
+        if (current === category) {
+          return true;
+        }
+        current = current.parent;
+      }
+
+      return false;
+    });
   }
 
   searchInItems(query: string): ItemView[] {

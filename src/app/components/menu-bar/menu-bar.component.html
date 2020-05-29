@@ -1,34 +1,25 @@
-<mat-tab-group>
+<ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: this.categories }"></ng-container>
 
-  <mat-tab *ngFor="let category of categories">
-    <ng-template mat-tab-label>
-      <mat-icon [svgIcon]="this.svgIconNames.get(category)">
-      </mat-icon> {{category.name}}
-    </ng-template>
-  </mat-tab>
+<ng-template #recursiveListTmpl let-list="list" let-c="c">
+  <mat-tab-group>
 
-  <!-- <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon svgIcon="all_of_me"></mat-icon> ALL
-    </ng-template>
-  </mat-tab>
-  <mat-tab>
-    <ng-template mat-tab-label>
-      Ready-Made
-    </ng-template>
+    <mat-tab *ngIf='c && list.length > 0'>
+      <ng-template mat-tab-label>
+        <mat-icon>add</mat-icon>
+        <span (click)="this.searchForCategory(c)">All of {{ c.name }}</span>
+      </ng-template>
+    </mat-tab>
 
-    <mat-tab-group>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon svgIcon="all_of_me"></mat-icon> ALL
-        </ng-template>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon svgIcon="pizza"></mat-icon> Pizza
-        </ng-template>
-      </mat-tab>
-    </mat-tab-group>
-
-  </mat-tab> -->
-</mat-tab-group>
+    <mat-tab *ngFor="let item of list">
+      <ng-template mat-tab-label>
+        <mat-icon>add</mat-icon>
+        <span *ngIf='item.children'>{{ item.name }}</span>
+        <span *ngIf='!item.children'(click)="this.searchForCategory(item)">{{ item.name }}</span>
+      </ng-template>
+      <ng-template matTabContent>
+        <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: item.children || [], c: item }">
+        </ng-container>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</ng-template>
