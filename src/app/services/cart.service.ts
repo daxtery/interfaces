@@ -3,6 +3,7 @@ import { Item } from '../item';
 import { BehaviorSubject, range } from 'rxjs';
 import { last, filter, pairwise, skip, distinctUntilChanged } from 'rxjs/operators';
 import { CartItem } from '../cartItem';
+import { CartViewComponent } from '../components/cart-view/cart-view.component';
 
 
 @Injectable({
@@ -94,6 +95,10 @@ export class CartService {
 
   public priceOf(item: Item): number {
     return this.itemsAndQuantityInCartSource.value.get(item)?.price || 0;
+  }
+
+  public clear(){
+    this.itemsAndQuantityInCartSource.next(new Map<Item, CartItem>());
   }
 
 }

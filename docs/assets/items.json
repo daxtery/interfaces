@@ -1,0 +1,123 @@
+[
+    {
+        "id": 1,
+        "name": "Chicken Noodle Soup",
+        "brand": "Amazon",
+        "categoryNames": [
+            "Fresh",
+            "Soup"
+        ],
+        "weightType": "g",
+        "unitaryWeight": 200,
+        "unitaryPrice": 3.29,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91alI-UO%2BVL._SL1500_.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Chicken Noodle Soup",
+        "brand": "Campbell",
+        "categoryNames": [
+            "Frozen",
+            "Soup"
+        ],
+        "weightType": "g",
+        "unitaryWeight": 120,
+        "unitaryPrice": 2.29,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91tY%2BHe2AQL._SL1500_.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Low Fat Milk",
+        "brand": "Nestle",
+        "categoryNames": [
+            "Dairy",
+            "Milk",
+            "Low Fat Milk"
+        ],
+        "weightType": "L",
+        "unitaryWeight": 1,
+        "unitaryPrice": 1.19,
+        "pictureUrl": "https://cdn.shopify.com/s/files/1/2889/2216/products/NESTLE_LOW_FAT_MILK_250ML_800x.png?v=1523867402"
+    },
+    {
+        "id": 4,
+        "name": "Pizza",
+        "brand": "Mikey's",
+        "categoryNames": [
+            "Ready-Made",
+            "Pizza"
+        ],
+        "weightType": "g",
+        "unitaryWeight": 226,
+        "unitaryPrice": 13.99,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/51yOc-1sIDL.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Pizza",
+        "brand": "Digiorno",
+        "categoryNames": [
+            "Ready-Made",
+            "Pizza"
+        ],
+        "weightType": "g",
+        "unitaryWeight": 241,
+        "unitaryPrice": 15.99,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91BkbXuJPQL._SL1500_.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Pizza",
+        "brand": "Red Baron",
+        "categoryNames": [
+            "Ready-Made",
+            "Pizza"
+        ],
+        "weightType": "g",
+        "unitaryWeight": 206,
+        "unitaryPrice": 11.99,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/61b1rz-6R9L._SL1000_.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Pizza",
+        "brand": "Gino's",
+        "categoryNames": [
+            "Ready-Made",
+            "Pizza"
+        ],
+        "weightType": "g",
+        "unitaryWeight": 500,
+        "unitaryPrice": 21.99,
+        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81OhNS5Os6L._SL1440_.jpg"
+    },
+    {
+        "id": 8,
+        "name": "2% reduced fat milk",
+        "brand": "Gossner Premium Milk",
+        "categoryNames": [
+            "Dairy",
+            "Milk",
+            "Fat Milk"
+        ],
+        "weightType": "L",
+        "unitaryWeight": 1,
+        "unitaryPrice": 3.49,
+        "pictureUrl": "https://market.ibenia.com/image/cache/catalog/31680716101-700x700.jpg"
+    },
+    {
+        "id": 9,
+        "name": "yoggi líquido sabor morango",
+        "brand": "Nestle",
+        "categoryNames": [
+            "Dairy",
+            "Yoggurt",
+            "Strawberry",
+            "Lactose Free"
+        ],
+        "weightType": "L",
+        "unitaryWeight": 1,
+        "unitaryPrice": 3.49,
+        "pictureUrl": "https://driveimg4.intermarche.com/pt/Ressources/images/produit/zoom/E0824DD15C8B77F70D9EECF3EBEE36D7-nestle-iogurte-liquido-yoggi-sem-lactose-morango.jpg"
+    }
+]

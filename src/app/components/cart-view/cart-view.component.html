@@ -23,7 +23,8 @@
   <!-- Price Column -->
   <ng-container matColumnDef="price">
     <th mat-header-cell *matHeaderCellDef> Price </th>
-    <td mat-cell *matCellDef="let element" matTooltipPosition="before" matTooltip="{{element.quantity}} * {{element.item.unitaryPrice| currency:'EUR'}}">
+    <td mat-cell *matCellDef="let element" matTooltipPosition="before"
+      matTooltip="{{element.quantity}} * {{element.item.unitaryPrice| currency:'EUR'}}">
       {{element.price| currency:'EUR' }} </td>
     <td mat-footer-cell *matFooterCellDef> {{this.cart.priceTotal() | currency:'EUR'}} </td>
   </ng-container>
@@ -52,3 +53,8 @@
   <tr mat-footer-row *matFooterRowDef="columnsToDisplay"></tr>
 
 </table>
+
+<button *ngIf="this.cart.priceTotal() > 0" (click)="this.openCheckoutDialog()" mat-icon-button>
+  <mat-icon>toll</mat-icon>
+  Checkout
+</button>

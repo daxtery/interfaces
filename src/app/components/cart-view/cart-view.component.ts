@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Item } from 'src/app/item';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CartItem } from 'src/app/cartItem';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DialogData {
+  price: number;
+}
 
 @Component({
   selector: 'app-cart-view',
@@ -24,7 +29,7 @@ export class CartViewComponent {
   expandedElement: CartItem | null;
   cart: CartService;
 
-  constructor(cart: CartService) {
+  constructor(cart: CartService, public dialog: MatDialog) {
     this.cart = cart;
     cart.currentItemsAndQuantities.subscribe((i) => this.prepareDataToShow(i));
   }
@@ -37,4 +42,18 @@ export class CartViewComponent {
     this.cart.undoLastOperation();
   }
 
+
+  openCheckoutDialog() {
+    this.dialog.open(DialogDataExampleDialog, { data: { price: this.cart.priceTotal() } });
+    this.cart.clear();
+  }
+
+}
+
+@Component({
+  selector: 'app-cart-checkout-dialog',
+  templateUrl: 'cart-checkout-dialog.html',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 }
