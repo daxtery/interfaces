@@ -7,6 +7,11 @@ import categories from '../../assets/categories.json';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ItemView } from '../itemView';
 
+export interface ItemAndStock {
+  item: Item;
+  stock: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +27,7 @@ export class DatabaseService {
     console.log('Loaded items: ', items);
     console.log('Loaded categories: ', categories);
     this.categories = this.categories.map(c => this.giveCategoriesTheirParent(c));
-    this.itemViews = items.map(i => this.fromItemToItemView(i));
+    this.itemViews = items.map(i => this.fromItemToItemView(i.item));
     this.itemsSource = new BehaviorSubject<ItemView[]>(this.itemViews);
     this.currentItems = this.itemsSource.asObservable();
   }
