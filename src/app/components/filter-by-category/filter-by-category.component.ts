@@ -8,6 +8,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 import { Category } from 'src/app/category';
 import { Item } from 'src/app/item';
 import { ItemView } from 'src/app/itemView';
+import { SearchService } from 'src/app/services/search.service';
 
 /** Flat to-do item node with expandable and level information */
 
@@ -49,7 +50,7 @@ export class FilterByCategoryComponent {
   /** The selection for checklist */
   checklistSelection = new SelectionModel<ItemTypeFlatNode>(true /* multiple */);
 
-  constructor(database: DatabaseService, private itemView: ItemViewService) {
+  constructor(database: DatabaseService, private itemView: ItemViewService, private search: SearchService) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this.getLevel,
       this.isExpandable, this.getChildren);
     this.treeControl = new FlatTreeControl<ItemTypeFlatNode>(this.getLevel, this.isExpandable);
@@ -160,6 +161,7 @@ export class FilterByCategoryComponent {
       (this.checklistSelection.selected.filter(s => !s.expandable)
         .sort((a, b) => a.level - b.level))
         .map(se => se.category));
+    this.search.clear();
   }
 
   /* Checks all the parents when a leaf node is selected/unselected */

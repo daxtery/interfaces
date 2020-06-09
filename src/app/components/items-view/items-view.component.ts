@@ -5,6 +5,7 @@ import { Category } from 'src/app/category';
 import { DatabaseService } from 'src/app/services/database.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ItemView } from 'src/app/itemView';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-items-view',
@@ -18,10 +19,13 @@ export class ItemsViewComponent {
   categoriesAllowed: Category[] = [];
   brandsAllowed: string[] = [];
 
-  constructor(private cart: CartService, service: ItemViewService, database: DatabaseService) {
+  searched: string;
+
+  constructor(private cart: CartService, service: ItemViewService, database: DatabaseService, search: SearchService) {
     service.currentBrands.subscribe(brands => this.changeFilterByBrand(brands));
     service.currentCategories.subscribe(categories => this.changeFilterByType(categories));
     database.currentItems.subscribe(items => this.items = this.itemsFromDataBase = items);
+    search.currentSearch.subscribe(q => this.searched = q);
   }
 
   public changeFilterByType(allowed: Category[]): void {
@@ -65,6 +69,10 @@ export class ItemsViewComponent {
 
   public quantityOfItem(item: ItemView): number {
     return this.cart.quantityOfItem(item);
+  }
+
+  public setLastSearch(search: string) {
+    this.searched = search;
   }
 
 

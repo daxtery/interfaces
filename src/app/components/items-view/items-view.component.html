@@ -9,10 +9,26 @@
     <app-filter-by-type></app-filter-by-type>
   </section>
 
-  <section fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" ngClass.gt-xs="ml-10">
+  <section class="iv" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" ngClass.gt-xs="ml-10">
+
+    <div class="no-found" *ngIf="items.length == 0">
+      No results for '<span>{{searched}}</span>'. Maybe you could try one of the following:
+      <ul>
+        <li>Check for typos</li>
+        <li>Try broader concepts</li>
+        <li>It's possible to search for:</li>
+        <ul>
+          <li>Brand</li>
+          <li>Category</li>
+          <li>Product Name</li>
+          <li>Product Id</li>
+        </ul>
+      </ul>
+    </div>
 
     <ng-container *ngFor="let item of items">
-      <app-item fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)" [item]=item></app-item>
+      <app-item fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)"
+        [item]=item></app-item>
     </ng-container>
 
   </section>
