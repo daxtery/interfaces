@@ -9,7 +9,7 @@ import { FilterByBrandComponent } from './components/filter-by-brand/filter-by-b
 import { FilterByCategoryComponent } from './components/filter-by-category/filter-by-category.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ItemsViewComponent } from './components/items-view/items-view.component';
-import { ItemComponent } from './components/item/item.component';
+import { ItemComponent, ItemDetailsDialog } from './components/item/item.component';
 import { CartPreviewComponent } from './components/cart-preview/cart-preview.component';
 import { CartViewComponent } from './components/cart-view/cart-view.component';
 
@@ -30,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -45,7 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
       ItemsViewComponent,
       ItemComponent,
       CartPreviewComponent,
-      CartViewComponent
+      CartViewComponent,
+      ItemDetailsDialog
    ],
    imports: [
       BrowserModule,
@@ -69,6 +71,7 @@ import { HttpClientModule } from '@angular/common/http';
       MatTableModule,
       FlexLayoutModule,
       MatButtonModule,
+      MatExpansionModule,
    ],
    providers: [],
    bootstrap: [

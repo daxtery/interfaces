@@ -1,21 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Item } from 'src/app/item';
 import { CartService } from 'src/app/services/cart.service';
-import { FormControl } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
 
   @Input() item: Item;
   cart: CartService;
 
-  message = new FormControl('Info about the action');
-
-  constructor(cart: CartService) {
+  constructor(cart: CartService, public dialog: MatDialog) {
     this.cart = cart;
   }
 
@@ -27,7 +25,16 @@ export class ItemComponent implements OnInit {
     this.cart.removeUnitOfItem(this.item);
   }
 
-  ngOnInit() {
+  openDetailsDialog() {
+    this.dialog.open(ItemDetailsDialog, { data: this.item });
   }
 
+}
+
+@Component({
+  selector: 'app-item-details-dialog',
+  templateUrl: './item-details-dialog.html',
+})
+export class ItemDetailsDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public item: Item) { }
 }

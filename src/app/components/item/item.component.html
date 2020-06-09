@@ -5,7 +5,7 @@
 
   <mat-card-content>
 
-    <img [src]=this.item.pictureUrl>
+    <img (click)='this.openDetailsDialog()' [src]=this.item.pictureUrl>
 
     <h1 flFlex *ngIf="this.cart.quantityOfItem(this.item) == 0">{{this.item.unitaryPrice | currency:'EUR'}}</h1>
 

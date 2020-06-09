@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>{{this.item.name}}</h1>
+<div mat-dialog-content>
+
+    <img style="max-width: 300px;max-height: 300px;" [src]='this.item.pictureUrl'>
+
+    <h3><b>Weight</b>: {{this.item.unitaryWeight}} {{this.item.weightType}}</h3>
+    <h3><b>Brand</b>: {{this.item.brand}}</h3>
+    <h3><b>Unitary Price</b>: {{this.item.unitaryPrice}}</h3>
+    <h3><b>All Categories</b>: {{this.item.categoryNames}}</h3>
+
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Other
+                </mat-panel-title>
+                <mat-panel-description>
+                    Other informations
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p><b>Id</b>: {{this.item.id}}</p>
+            <p><b>Calories</b>: {{this.item.calories}}</p>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+</div>
