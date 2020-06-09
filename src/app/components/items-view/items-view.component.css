@@ -1,3 +1,11 @@
 .no-found > span {
     color: red;    
 }
+
+section.brand {
+    border: 1px dotted grey;
+}
+
+section.filter {
+    border: 1px dotted grey;
+}

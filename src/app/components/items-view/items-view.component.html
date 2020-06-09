@@ -1,12 +1,16 @@
-<section fxLayout="row" fxLayoutGap="20px">
+<section class="cont" fxLayout="row" fxLayoutGap="20px">
 
   <section fxLayout="column" fxLayoutGap="20px">
 
-    <h2>Brand: </h2>
-    <app-filter-by-brand></app-filter-by-brand>
+    <section class="brand">
+      <h2>Brand: </h2>
+      <app-filter-by-brand></app-filter-by-brand>
+    </section>
 
-    <h2>Type: </h2>
-    <app-filter-by-type></app-filter-by-type>
+    <section class="filter">
+      <h2>Type: </h2>
+      <app-filter-by-type></app-filter-by-type>
+    </section>
   </section>
 
   <section class="iv" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" ngClass.gt-xs="ml-10">
