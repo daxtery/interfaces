@@ -5,6 +5,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { CartItem } from 'src/app/cartItem';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Order } from 'src/app/order';
+import { Router } from '@angular/router';
 
 export interface DialogData {
   price: number;
@@ -30,7 +31,7 @@ export class CartViewComponent {
   expandedElement: CartItem | null;
   cart: CartService;
 
-  constructor(cart: CartService, public dialog: MatDialog) {
+  constructor(cart: CartService, public dialog: MatDialog, private router: Router) {
     this.cart = cart;
     cart.currentItemsAndQuantities.subscribe((i) => this.prepareDataToShow(i));
   }
@@ -61,6 +62,7 @@ export class CartViewComponent {
 
     dialogRef.afterClosed().subscribe(_ => {
       this.cart.clear();
+      this.router.navigate(['']);
     });
   }
 
