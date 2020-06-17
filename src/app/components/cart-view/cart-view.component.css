@@ -6,3 +6,7 @@ table {
     overflow: hidden;
     display: flex;
 }
+
+.checkout {
+    color: #f44336;
+}

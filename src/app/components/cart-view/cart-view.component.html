@@ -54,7 +54,10 @@
 
 </table>
 
-<button *ngIf="this.cart.priceTotal() > 0" (click)="this.openCheckoutDialog()" mat-icon-button>
-  <mat-icon>toll</mat-icon>
-  Checkout
-</button>
+<div>
+  <button fxFlex="60" fxFlexOffset="20" class="checkout" [disabled]="this.cart.priceTotal() === 0" (click)="this.openCheckoutDialog()"
+    mat-button>
+    <mat-icon>payment</mat-icon>
+    Checkout
+  </button>
+</div>
