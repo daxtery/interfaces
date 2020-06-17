@@ -12,15 +12,10 @@ mat-card:hover {
 mat-card {
     margin-bottom: 10px;
 
-    min-width: 10vw;
-    min-height: 10vh;
+    min-width: 15vw;
+    min-height: 15vh;
     
     border: 1px dotted grey;
-}
-
-mat-card title {
-    max-height: 10vh !important;
-    min-height: 10vh !important;
 }
 
 .mat-icon {
