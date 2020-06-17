@@ -1,3 +1,9 @@
+<h1 mat-dialog-title>Confirm payment</h1>
 <div mat-dialog-content>
-    You payed {{data.price}}.
+    Confirm the payment of this order?
+    The total is {{data.price | currency:'EUR'}}.
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Not yet</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button>
 </div>

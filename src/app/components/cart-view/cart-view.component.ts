@@ -3,7 +3,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { Item } from 'src/app/item';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CartItem } from 'src/app/cartItem';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 export interface DialogData {
   price: number;
@@ -44,8 +44,12 @@ export class CartViewComponent {
 
 
   openCheckoutDialog() {
-    this.dialog.open(DialogDataExampleDialog, { data: { price: this.cart.priceTotal() } });
-    this.cart.clear();
+    const dialogRef = this.dialog.open(DialogDataExampleDialog, { data: { price: this.cart.priceTotal() } });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      if (result && result === true) { this.cart.clear(); }
+    });
   }
 
 }
@@ -55,5 +59,10 @@ export class CartViewComponent {
   templateUrl: 'cart-checkout-dialog.html',
 })
 export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(public dialogRef: MatDialogRef<DialogDataExampleDialog>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
