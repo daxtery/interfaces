@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject, AfterViewInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Item } from 'src/app/item';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CartItem } from 'src/app/cartItem';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Order } from 'src/app/order';
 
 export interface DialogData {
   price: number;
@@ -48,7 +49,18 @@ export class CartViewComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
-      if (result && result === true) { this.cart.clear(); }
+      if (result && result === true) {
+        this.openReceiptDialog();
+      }
+    });
+  }
+
+  openReceiptDialog() {
+    const newOrder = new Order(Array.from(this.dataSource), this.cart.priceTotal());
+    const dialogRef = this.dialog.open(ReceiptDialog, { data: newOrder, minWidth: '80vw' });
+
+    dialogRef.afterClosed().subscribe(_ => {
+      this.cart.clear();
     });
   }
 
@@ -65,4 +77,16 @@ export class DialogDataExampleDialog {
   onNoClick(): void {
     this.dialogRef.close();
   }
+}
+
+@Component({
+  selector: 'app-cart-receipt-dialog',
+  templateUrl: 'cart-receipt-dialog.html',
+})
+export class ReceiptDialog {
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Order) {
+    console.log(data);
+  }
+
 }

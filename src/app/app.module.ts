@@ -11,7 +11,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { ItemsViewComponent } from './components/items-view/items-view.component';
 import { ItemComponent, ItemDetailsDialog } from './components/item/item.component';
 import { CartPreviewComponent } from './components/cart-preview/cart-preview.component';
-import { CartViewComponent, DialogDataExampleDialog } from './components/cart-view/cart-view.component';
+import { CartViewComponent, DialogDataExampleDialog, ReceiptDialog } from './components/cart-view/cart-view.component';
 
 import { FormsModule } from '@angular/forms';
 
@@ -49,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
       CartViewComponent,
       ItemDetailsDialog,
       DialogDataExampleDialog,
+      ReceiptDialog
    ],
    imports: [
       BrowserModule,

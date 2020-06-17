@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Your order details</h1>
+<div mat-dialog-content>
+
+    <table mat-table #table style="width: 100%;" [dataSource]="this.data.items" class="mat-elevation-z8">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-footer-cell *matFooterCellDef>
+                <h2><b>Total</b></h2>
+            </td>
+        </ng-container>
+
+        <!-- Brand Column -->
+        <ng-container matColumnDef="brand">
+            <th mat-header-cell *matHeaderCellDef> Brand </th>
+            <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element" matTooltipPosition="before"
+                matTooltip="{{element.quantity}} * {{element.item.unitaryPrice| currency:'EUR'}}">
+                {{element.price| currency:'EUR' }} </td>
+            <td mat-footer-cell *matFooterCellDef> {{ this.data.priceTotal | currency:'EUR'}} </td>
+        </ng-container>
+
+        <!-- Quantity Column -->
+        <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+            <td mat-footer-cell *matFooterCellDef>{{ this.data.numberOfItems }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['name', 'brand', 'price', 'quantity']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['name', 'brand', 'price', 'quantity'];"></tr>
+        <tr mat-footer-row *matFooterRowDef="['name', 'brand', 'price', 'quantity']"></tr>
+
+    </table>
+</div>
+<div mat-dialog-actions align="center">
+    <button mat-button [mat-dialog-close]>Ok</button>
+</div>
