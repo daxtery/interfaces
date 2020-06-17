@@ -11,7 +11,7 @@ import { CartViewComponent } from '../components/cart-view/cart-view.component';
 })
 export class CartService {
 
-  private lastItemsAndQuantityInCartSource: Map<Item, CartItem> = new Map<Item, CartItem>();
+  private lastItemsAndQuantityInCartSource: Map<Item, CartItem> = null;
 
   private itemsAndQuantityInCartSource = new BehaviorSubject<Map<Item, CartItem>>(new Map<Item, CartItem>());
   currentItemsAndQuantities = this.itemsAndQuantityInCartSource.asObservable();
@@ -99,6 +99,7 @@ export class CartService {
 
   public clear(){
     this.itemsAndQuantityInCartSource.next(new Map<Item, CartItem>());
+    this.lastItemsAndQuantityInCartSource = null;
   }
 
 }
