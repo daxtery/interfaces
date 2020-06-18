@@ -7,9 +7,10 @@ import categories from '../../assets/categories.json';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ItemView } from '../itemView';
 
-export interface ItemAndStock {
-  item: Item;
-  stock: number;
+export class ItemAndStock extends ItemView {
+  constructor(item: ItemView, public stock: number) {
+    super(item, item.category);
+  }
 }
 
 @Injectable({
@@ -17,18 +18,18 @@ export interface ItemAndStock {
 })
 export class DatabaseService {
 
-  private itemsSource: BehaviorSubject<ItemView[]>;
-  currentItems: Observable<ItemView[]>;
+  private itemsSource: BehaviorSubject<ItemAndStock[]>;
+  currentItems: Observable<ItemAndStock[]>;
 
   categories: Category[] = categories;
-  itemViews: ItemView[];
+  itemViews: ItemAndStock[];
 
   constructor() {
     console.log('Loaded items: ', items);
     console.log('Loaded categories: ', categories);
     this.categories = this.categories.map(c => this.giveCategoriesTheirParent(c));
-    this.itemViews = items.map(i => this.fromItemToItemView(i.item));
-    this.itemsSource = new BehaviorSubject<ItemView[]>(this.itemViews);
+    this.itemViews = items.map(i => new ItemAndStock(this.fromItemToItemView(i.item), i.stock));
+    this.itemsSource = new BehaviorSubject<ItemAndStock[]>(this.itemViews);
     this.currentItems = this.itemsSource.asObservable();
   }
 
@@ -93,7 +94,7 @@ export class DatabaseService {
     this.itemsSource.next(this.searchInItemsByCategory(category));
   }
 
-  searchInItemsByCategory(category: Category): ItemView[] {
+  searchInItemsByCategory(category: Category): ItemAndStock[] {
     return this.itemViews.filter(item => {
       let current = item.category;
 
@@ -108,7 +109,7 @@ export class DatabaseService {
     });
   }
 
-  searchInItems(query: string): ItemView[] {
+  searchInItems(query: string): ItemAndStock[] {
     return this.itemViews.filter(itemView => {
       return itemView.name.toLowerCase().match(query.toLowerCase())
         || itemView.id === Number.parseInt(query, 10)

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Item } from '../../item';
 import { ItemViewService } from 'src/app/services/item-view.service';
 import { Category } from 'src/app/category';
-import { DatabaseService } from 'src/app/services/database.service';
+import { DatabaseService, ItemAndStock } from 'src/app/services/database.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ItemView } from 'src/app/itemView';
 import { SearchService } from 'src/app/services/search.service';
@@ -14,8 +14,8 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class ItemsViewComponent {
 
-  items: ItemView[] = [];
-  itemsFromDataBase: ItemView[] = [];
+  items: ItemAndStock[] = [];
+  itemsFromDataBase: ItemAndStock[] = [];
   categoriesAllowed: Category[] = [];
   brandsAllowed: string[] = [];
 
@@ -44,11 +44,11 @@ export class ItemsViewComponent {
     return false;
   }
 
-  itemIsAllowedByCategories(item: ItemView, categories: Category[]): boolean {
+  itemIsAllowedByCategories(item: ItemAndStock, categories: Category[]): boolean {
     return categories.some(c => this.categoriesAreTheSameDeep(c, item.category));
   }
 
-  itemIsAllowedByBrands(item: ItemView, brands: string[]): boolean {
+  itemIsAllowedByBrands(item: ItemAndStock, brands: string[]): boolean {
     return brands.some(b => item.brand === b);
   }
 
@@ -74,6 +74,5 @@ export class ItemsViewComponent {
   public setLastSearch(search: string) {
     this.searched = search;
   }
-
 
 }

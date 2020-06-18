@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Item } from 'src/app/item';
+import { Component, Input, Inject } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { ItemAndStock } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-item',
@@ -10,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 })
 export class ItemComponent {
 
-  @Input() item: Item;
+  @Input() item: ItemAndStock;
   cart: CartService;
 
   constructor(cart: CartService, public dialog: MatDialog) {
@@ -36,5 +36,5 @@ export class ItemComponent {
   templateUrl: './item-details-dialog.html',
 })
 export class ItemDetailsDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public item: Item) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public item: ItemAndStock) { }
 }

@@ -4,7 +4,7 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { BehaviorSubject } from 'rxjs';
 import { ItemViewService } from 'src/app/services/item-view.service';
-import { DatabaseService } from 'src/app/services/database.service';
+import { DatabaseService, ItemAndStock } from 'src/app/services/database.service';
 import { Category } from 'src/app/category';
 import { Item } from 'src/app/item';
 import { ItemView } from 'src/app/itemView';
@@ -80,7 +80,7 @@ export class FilterByCategoryComponent {
     return newItemCategoryNode;
   }
 
-  prepareDataForTree(items: ItemView[]): ItemType[] {
+  prepareDataForTree(items: ItemAndStock[]): ItemType[] {
     return [...new Set(items.map(item => {
       let current = item.category;
       while (current.parent) { current = current.parent; }
