@@ -155,5 +155,74 @@
             "calories": 150
         },
         "stock": 15
+    },
+    {
+        "item": {
+            "id": 10,
+            "name": "banana",
+            "brand": "Canárias",
+            "categoryNames": [
+                "Fresh",
+                "Fruit",
+                "Banana"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 200,
+            "unitaryPrice": 0.69,
+            "pictureUrl": "https://driveimg4.intermarche.com/pt/Ressources/images/produit/zoom/8A1C7B9FB2E38572512FB968E794AC87-fruta-do-dia-banana-canarias.jpg",
+            "calories": 56
+        },
+        "stock": 4
+    },
+    {
+        "item": {
+            "id": 11,
+            "name": "Uva",
+            "brand": "Red Globe",
+            "categoryNames": [
+                "Fresh",
+                "Fruit",
+                "Grape"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 250,
+            "unitaryPrice": 0.87,
+            "pictureUrl": "https://driveimg2.intermarche.com/pt/Ressources/images/produit/zoom/AB633027A9D6F57361C3682B62639291-fruta-do-dia-uva-red-globe.jpg",
+            "calories": 67
+        },
+        "stock": 15
+    },
+    {
+        "item": {
+            "id": 12,
+            "name": "Oreo original",
+            "brand": "Oreo",
+            "categoryNames": [
+                "Snack",
+                "Cookie"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 220,
+            "unitaryPrice": 1.99,
+            "pictureUrl": "https://driveimg1.intermarche.com/pt/Ressources/images/produit/zoom/E8D955EC99B03B670D4EAC7EEE654AE8-oreo-bolachas.jpg",
+            "calories": 47400
+        },
+        "stock": 15
+    },
+    {
+        "item": {
+            "id": 13,
+            "name": "Water",
+            "brand": "Luso",
+            "categoryNames": [
+                "Water"
+            ],
+            "weightType": "L",
+            "unitaryWeight": 5.4,
+            "unitaryPrice": 1.30,
+            "pictureUrl": "https://driveimg2.intermarche.com/pt/Ressources/images/produit/zoom/4C0857273220A8FAB3AB2304A0918BFE-luso-agua-s-gas.jpg",
+            "calories": 50
+        },
+        "stock": 1
     }
 ]
