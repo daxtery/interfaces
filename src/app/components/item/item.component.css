@@ -1,7 +1,4 @@
 mat-card img {
-    object-fit: cover; /*this makes the image in src fit to the size specified below*/
-    width: 60%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-    height: 50%;
     cursor: pointer;
 }
 
@@ -19,9 +16,11 @@ mat-card {
 }
 
 .mat-icon {
-    font-size: 250%;
+    font-size: 350%;
 }
 
-.mat-icon-button[disabled] {
-    font-size: 150%;
+.text {
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 250%;
 }
