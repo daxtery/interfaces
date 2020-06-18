@@ -15,19 +15,31 @@
 
   <section class="iv" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" ngClass.gt-xs="ml-10">
 
-    <div class="no-found" *ngIf="items.length == 0">
-      No results for '<span>{{searched}}</span>'. Maybe you could try one of the following:
-      <ul>
-        <li>Check for typos</li>
-        <li>Broaden search and/or filters on brand/type</li>
-        <li>It's possible to search for:</li>
+    <div *ngIf="items.length == 0">
+      <div *ngIf="searched !== ''">
+        No results for <span class="no-found">{{searched}}</span> and selected brands and categories.
+        Maybe you could try one of the following:
+
         <ul>
-          <li>Brand</li>
-          <li>Category</li>
-          <li>Product Name</li>
-          <li>Product Id</li>
+          <li>Check for typos</li>
+          <li>Broaden search and/or filters on brand/type</li>
+          <li>It's possible to search for:</li>
+          <ul>
+            <li>Brand</li>
+            <li>Category</li>
+            <li>Product Name</li>
+            <li>Product Id</li>
+          </ul>
         </ul>
-      </ul>
+      </div>
+      <div *ngIf="searched === ''">
+        No items with that brand and category selection.
+        Maybe you could try one of the following:
+
+        <ul>
+          <li>Broaden filters on brand/category</li>
+        </ul>
+      </div>
     </div>
 
     <ng-container *ngFor="let item of items">
