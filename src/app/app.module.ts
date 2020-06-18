@@ -12,6 +12,7 @@ import { ItemsViewComponent } from './components/items-view/items-view.component
 import { ItemComponent, ItemDetailsDialog } from './components/item/item.component';
 import { CartPreviewComponent } from './components/cart-preview/cart-preview.component';
 import { CartViewComponent, DialogDataExampleDialog, ReceiptDialog } from './components/cart-view/cart-view.component';
+import { MenuItemComponent } from './components/menu-item/menu-item.component';
 
 import { FormsModule } from '@angular/forms';
 
@@ -30,7 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -49,7 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
       CartViewComponent,
       ItemDetailsDialog,
       DialogDataExampleDialog,
-      ReceiptDialog
+      ReceiptDialog,
+      MenuItemComponent
    ],
    imports: [
       BrowserModule,
@@ -74,6 +77,7 @@ import { HttpClientModule } from '@angular/common/http';
       FlexLayoutModule,
       MatButtonModule,
       MatExpansionModule,
+      MatToolbarModule,
    ],
    providers: [],
    bootstrap: [

@@ -1,7 +1,4 @@
-::ng-deep .mat-tab-labels > .mat-tab-label:first-child {
-  display: none;
-}
-
-::ng-deep .mat-tab-label-active {
-  color: red !important;
+button[aria-expanded="true"]{
+  border: 1px solid #f44336 !important;
+  border-radius: 5px !important;
 }
