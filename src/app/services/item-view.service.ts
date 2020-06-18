@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Category } from '../category';
+import { skip } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +9,12 @@ import { Category } from '../category';
 export class ItemViewService {
 
   private brandsSource = new BehaviorSubject<string[]>([]);
-  currentBrands = this.brandsSource.asObservable();
+  currentBrands = this.brandsSource.asObservable().pipe(skip(1));
 
   private categoriesSource = new BehaviorSubject<Category[]>([]);
-  currentCategories = this.categoriesSource.asObservable();
+  currentCategories = this.categoriesSource.asObservable().pipe(skip(1));
 
   constructor() {
-
   }
 
   changedBrands(allowed: string[]): void {
