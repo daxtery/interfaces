@@ -57,7 +57,7 @@ export class CartViewComponent {
   }
 
   openReceiptDialog() {
-    const newOrder = new Order(Array.from(this.dataSource), this.cart.priceTotal());
+    const newOrder = new Order(Array.from(this.dataSource), this.cart.priceTotal(), this.cart.numberOfItems());
     const dialogRef = this.dialog.open(ReceiptDialog, { data: newOrder, minWidth: '80vw' });
 
     dialogRef.afterClosed().subscribe(_ => {
@@ -88,7 +88,6 @@ export class DialogDataExampleDialog {
 export class ReceiptDialog {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Order) {
-    console.log(data);
   }
 
 }
