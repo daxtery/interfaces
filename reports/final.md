@@ -275,7 +275,7 @@ Example below:
 | - | - | - | - |
 | Checkout Size Button | Checkout button is hard to see | Major | Make it bigger or use different colours (i.e. red)
 
-This was [also a problem presented by Sahan] // TODO . The solution is the same as presented there:
+This was [also a problem presented by Sahan](#number-8) . The solution is the same as presented there:
 
 > Not only was the icon changed (as it was difficult to understand) but it was made bigger and red color was added. The button is now also disabled if no items are present in the cart.
 
@@ -287,7 +287,7 @@ The color is the same as suggested as it is fitting.
 | - | - | - | - |
 | No Existing Items | If a search gives 0 results, the system do not "communicates" it to the user  | Major | Print a message on the screen
 
-This was [also a problem presented by Sahan] // TODO . The solution is the same as presented there:
+This was [also a problem presented by Sahan](#number-2) . The solution is the same as presented there:
 
 > When a search is perfomed that yields no results, as per the suggested solution, the system now tells you so with a helpful message. In that message it is reported that the searched term couldn't be found and gives some possible solutions. 
 
@@ -297,7 +297,7 @@ This was [also a problem presented by Sahan] // TODO . The solution is the same 
 | - | - | - | - |
 | Info About Product  | In "ToDo List"  | Major | Create a modal with information
 
-This was [also a problem presented by Sahan] // TODO . The solution is the same as presented there:
+This was [also a problem presented by Sahan](#number-3). The solution is the same as presented there:
 
 > A dialog is now spawned when the user clicks the image of the product. It reveals all the information that was previously available and a few other details such as ID, Calories, Stock, price per L/Kg, categories, weight in kg/L.
 
@@ -307,7 +307,7 @@ This was [also a problem presented by Sahan] // TODO . The solution is the same 
 | - | - | - | - |
 | Checkout Confirmation  | In "ToDo List"  | Major | Make a confirmation pop up
 
-This was [also a problem presented by Sahan] // TODO . The solution is the same as presented there:
+This was [also a problem presented by Sahan](#number-4). The solution is the same as presented there:
 
 > A confirmation dialog now appears when performing the checkout. 
 
