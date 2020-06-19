@@ -7,11 +7,6 @@ mat-card:hover {
 }
 
 mat-card {
-    margin-bottom: 10px;
-
-    min-width: 15vw;
-    min-height: 15vh;
-    
     border: 1px dotted grey;
 }
 

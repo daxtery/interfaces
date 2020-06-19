@@ -39,6 +39,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexModule } from '@angular/flex-layout/flex';
+import { GridModule } from '@angular/flex-layout/grid';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -84,7 +86,9 @@ import { HttpClientModule } from '@angular/common/http';
       MatExpansionModule,
       MatToolbarModule,
       MatSortModule,
-      DragDropModule
+      DragDropModule,
+      FlexModule,
+      GridModule
    ],
    providers: [],
    bootstrap: [

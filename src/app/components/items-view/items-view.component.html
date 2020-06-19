@@ -13,7 +13,7 @@
     </section>
   </section>
 
-  <section fxFlex="80" class="iv" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px" ngClass.gt-xs="ml-10">
+  <section fxFlex="90" class="iv">
 
     <div *ngIf="items.length == 0">
       <div *ngIf="searched !== ''">
@@ -42,15 +42,17 @@
       </div>
     </div>
 
-    <ng-container *ngFor="let item of items">
-      <app-item fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)"
-        [item]=item></app-item>
-    </ng-container>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between end"  fxLayout.lt-sm="column" fxLayoutGap="20px grid" ngClass.gt-xs="ml-10">
+      <ng-container *ngFor="let item of items">
+        <app-item fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)"
+          [item]=item></app-item>
+      </ng-container>
+    </div>
 
   </section>
 
-  <section fxFlex="10">
-      <app-order-by></app-order-by>
+  <section fxFlex>
+    <app-order-by></app-order-by>
   </section>
 
 </section>
