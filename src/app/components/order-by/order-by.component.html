@@ -1,7 +1,7 @@
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
   <div cdkDrag class="example-box" *ngFor="let order of orders">
     <button (click)="clicked(order)" mat-icon-button>
-      <mat-icon>{{ascOrDescOrder.get(order) ? 'arrow_downward' : 'arrow_upward' }}</mat-icon>
+      <mat-icon>{{ascendingOrder.get(order) ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
     </button><span>{{order}}</span>
   </div>
 </div>

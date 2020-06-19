@@ -8,6 +8,9 @@
     <h3><b>Unitary Price</b>: {{this.item.unitaryPrice}}</h3>
     <h3><b>All Categories</b>: {{this.item.categoryNames}}</h3>
     <h3><b>Stock</b>: {{this.item.stock}}</h3>
+    <h3><b>Calories</b>: {{this.item.calories}}</h3>
+    <h3><b>Price per kg/L</b>: {{this.item.pricePerWeight}}</h3>
+    <h3><b>Weight in kg/L</b>: {{this.item.weightInStandardUnit}}</h3>
 
     <mat-accordion>
         <mat-expansion-panel>
@@ -20,7 +23,6 @@
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <p><b>Id</b>: {{this.item.id}}</p>
-            <p><b>Calories</b>: {{this.item.calories}}</p>
             <p><b>Clicks</b>: {{this.item.clicks}}</p>
         </mat-expansion-panel>
     </mat-accordion>

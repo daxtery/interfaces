@@ -15,4 +15,14 @@ export class ItemView extends Item {
             item.calories,
             item.clicks);
     }
+
+
+    public get pricePerWeight(): number {
+        return this.unitaryPrice / this.weightInStandardUnit;
+    }
+
+    public get weightInStandardUnit(): number {
+        return this.unitaryWeight / ((this.weightType === 'g' || this.weightType === 'ml') ? 1000 : 1);
+    }
+
 }

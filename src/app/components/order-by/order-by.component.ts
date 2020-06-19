@@ -1,41 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { ItemViewService } from 'src/app/services/item-view.service';
+import { ItemAndStock } from 'src/app/ItemAndStock';
 
 @Component({
   selector: 'app-order-by',
   templateUrl: './order-by.component.html',
   styleUrls: ['./order-by.component.css']
 })
-export class OrderByComponent implements OnInit {
+export class OrderByComponent {
 
-  orders = [
-    'popularity',
-    'unit price',
-    'price per kg/l',
-    'quantity kg/l'
-  ];
+  orders: string[] = [];
 
-  ascOrDescOrder: Map<string, boolean> = new Map<string, boolean>();
+  ascendingOrder: Map<string, boolean> = new Map<string, boolean>();
+
+  orderMappings = new Map<string, (a: ItemAndStock) => number>();
+
+  constructor(private service: ItemViewService) {
+
+    this.orderMappings.set('popularity', (i) => i.clicks);
+    this.orderMappings.set('unit price', (i) => i.unitaryPrice);
+    this.orderMappings.set('price per kg/l', (i) => i.pricePerWeight);
+    this.orderMappings.set('quantity kg/l', (i) => i.weightInStandardUnit);
+
+    this.orders = Array.from(this.orderMappings.keys());
+
+    for (const order of this.orders) {
+      this.ascendingOrder.set(order, false);
+    }
+
+    this.service.changedOrders(this.orders, this.ascendingOrder, this.orderMappings);
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.orders, event.previousIndex, event.currentIndex);
-  }
-
-  constructor() {
-    for (const order of this.orders) {
-      this.ascOrDescOrder.set(order, false);
-    }
-  }
-
-  ngOnInit() {
-  }
-
-  sortData(thingy) {
-    console.log('Callback of sortData', thingy);
+    this.service.changedOrders(this.orders, this.ascendingOrder, this.orderMappings);
   }
 
   clicked(order: string) {
-    this.ascOrDescOrder.set(order, !this.ascOrDescOrder.get(order));
+    this.ascendingOrder.set(order, !this.ascendingOrder.get(order));
+    this.service.changedOrders(this.orders, this.ascendingOrder, this.orderMappings);
   }
 
 }
