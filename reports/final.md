@@ -102,7 +102,7 @@ All that's left is to add the item to the cart. We want 2 * 6 packs (1L). So we 
 
 ### Startup instructions
 
-Open a chromium based browser (as these are the only ones tested) and go to https://daxtery.github.io/interfaces/
+Open a chromium based browser (as these are the only ones tested) and go to https://daxtery.github.io/interfaces/prototype
 
 ### Scenarios
 
@@ -151,7 +151,11 @@ Open a chromium based browser (as these are the only ones tested) and go to http
 | - | - | - | - |
 | Rectangular area belongs to one item | Don’t see clear margins of rectangle shaped area | Low | Make it Popup when mouse pointer placed on it
 
-The suggested solution was implemented. Now the product will "grow" slightly when the user hovers the product.
+The suggested solution was implemented. Now the product will "grow" slightly when the user hovers the product. The products also have a small border next to them, further separating them.
+
+Example when hovering `Low Fat Milk 1 L`:
+
+![It grows](grow.png)
 
 #### number 2
 
@@ -161,13 +165,21 @@ The suggested solution was implemented. Now the product will "grow" slightly whe
 
 As per suggested: When a search is perfomed that yields no results, as per the suggested solution, the system now tells you so with a helpful message. In that message it is reported that the searched term couldn't be found and gives some possible solutions.
 
+Example when searching for `piano` (an item that doesn't exist):
+
+![It shows an error that states no item was found with the query piano](no-item.png)
+
 #### number 3
 
 | Problem  | Desc | Severity | Solution
 | - | - | - | - |
 | Item details not enough  | No access to further details about the item such as availability, available quantity, discounts, ingredients, weight, calorie amount etc.. | Low | Create a function to go inside the product and show such details 
 
-As suggested: A dialog is now spawned when the user clicks the image of the product. It reveals all the information that was previously available and a few other details such as ID, Calories, Stock, price per L/Kg, categories, weight in kg/L. 
+As suggested: A dialog is now spawned when the user clicks the image of the product. It reveals all the information that was previously available and a few other details such as ID, Calories, Stock, price per L/Kg, categories, weight in kg/L.
+
+Example when searching opening a `pizza` product:
+
+![It shows a dialog with details about an item. Including ID, Calories, Stock, price per L/Kg, categories, weight in kg/L](item.png)
 
 #### number 4
 
@@ -175,7 +187,11 @@ As suggested: A dialog is now spawned when the user clicks the image of the prod
 | - | - | - | - |
 | No user conformation required in checkout process | When executing checkout command it directly do the payment without confirm the payment. So it limits the user freedom to cancel the process at the last time | High | Before do the payment, there should be a step to confirm the payment.
 
-The solution was as sugested: A confirmation dialog now appears when performing the checkout. 
+The solution was as sugested: A confirmation dialog now appears when performing the checkout.
+
+An example with having 2 units of a product:
+
+![A dialog appears when the user tries to click checkout. It has options "not yet" and "confirm"](checkout-confirm.png)
 
 #### number 5
 
@@ -184,6 +200,10 @@ The solution was as sugested: A confirmation dialog now appears when performing 
 | Not issuing a printed bill | After the checkout process the system not issuing a proof for the payment and it limits the user’s | Mild | When checkout is confirmed, the customer should have a proof of the payment.
 
 As sugested the fix to this problem is a dialog where the details about the purchase appear (after having confirmed the checkout).
+
+The same example as before, but after confirming:
+
+![Order details](checkout-receipt.png)
 
 #### number 6
 
@@ -211,6 +231,10 @@ As sugested, this button received some changes:
 
 Not only was the icon changed (as it was difficult to understand) but it was made bigger and red color was added. The button is now also disabled if no items are present in the cart.
 
+The new button can be seen below:
+
+![Order details](checkout-button.png)
+
 #### number 9
 
 | Problem  | Desc | Severity | Solution
@@ -229,6 +253,10 @@ I disagree with this being a problem in the sense that this kind of application 
 
 The suggested solution was implemented. The categories now are menus.
 
+It can be seen below:
+
+![New menu](new_menu.png)
+
 #### number 2
 
 | Problem  | Desc | Severity | Solution
@@ -236,6 +264,10 @@ The suggested solution was implemented. The categories now are menus.
 | Asymmetric Results | In "ToDo List" | Minor | Absolute size for the box
 
 This problem is now at least somewhat addressed: all the products are now aligned by the bottom.
+
+Example below:
+
+![aligned](aligned.png)
 
 #### number 3
 
@@ -291,4 +323,94 @@ The redirect happens once the checkout is performed.
 
 ## Demo
 
-The latest version is possible to view by openning a chromium based browser (as these are the only ones tested) and go to https://daxtery.github.io/interfaces/
+The latest version is possible to view by opening a chromium based browser (as these are the only ones tested) and go to https://daxtery.github.io/interfaces/
+
+## Showcase
+
+Some use cases:
+
+### Maximum stock
+
+Since products aren't infinite and have stocks, this had to ben taken into account. Here is an example:
+
+![max stock](max_stock.png)
+
+### Price details
+
+Here is an example of the interface giving details about the price:
+
+![price](price.png)
+
+### Undo feature
+
+Suppose a user is using the system and picked `bananas`, along with other products.
+
+Going to the cart this is the current state:
+![undo1](undo1.png)
+
+But the `banana` chosen is not the brand the user want. So, they delete it from the cart. Now the cart is like below: 
+
+![undo2](undo2.png)
+
+After searching but failing to find the brand the user likes (and no other actions that involve the cart were performed) they can click the undo button. The cart is now like below: 
+
+![undo3](undo3.png)
+
+The undo button is disabled because the system only saves the last action, but the `bananas` are back.
+
+### Category selection
+
+It's possible to search for a category or a sub-category (here the target is `yogurt`):
+
+![yogurt1](yogurt1.png)
+
+After selecting the `yogurt` category we get the following screen:
+
+![yogurt2](yogurt2.png)
+
+### Search
+
+It's possible to search for a number of things:
+- Id
+- Brand
+- Category
+- Name
+
+An example of searching for `Nestle` (a brand) is below:
+
+![brand1](brand1.png)
+
+The result yields 2 products.
+
+### Order
+
+It's possible to order by number of things:
+- Popularity
+- Unit price
+- Price per kg/L
+- Quantity kg/L
+
+Any of these can be used to break a tie and it's possible to have each factor ascending or descending.
+
+An example of this feature, just changing popularity, is below:
+
+![order1](order1.png)
+
+Here the water is in first place (it is the most popular)
+If we change popularity to be ascending instead we get `Oreo` (which is the least popular item) instead. This can be seen below:
+
+![order2](order2.png)
+
+### Category/Brand filtering
+
+It's also possible to filter any categories and/or brands. For this example the word `soup` was searched and there are 2 results.
+
+The result is below:
+
+![categoryfilter1](categoryfilter1.png)
+
+If the `Campbell` brand is unticked, then only one product is left:
+
+![categoryfilter2](categoryfilter2.png)
+
+In this example it's easy to distinguish, but if there were more products, this feature would help a lot.
