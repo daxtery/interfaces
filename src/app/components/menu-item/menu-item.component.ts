@@ -19,6 +19,7 @@ export class MenuItemComponent {
 
   clicked(category: Category) {
     console.log('MenuItemComponent clicked', category);
+    this.router.navigate(['']);
     this.database.searchedInMenu(category);
   }
 

@@ -33,6 +33,7 @@ export class MenuBarComponent implements OnInit {
 
   clickedTab(category: Category) {
     console.log('MenuBarComponent clicked', category);
+    this.router.navigate(['']);
     this.database.searchedInMenu(category);
   }
 }
