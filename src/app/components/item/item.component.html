@@ -1,6 +1,7 @@
 <mat-card class="example-card" fxLayout="column">
 
-  <mat-card-title>{{this.item.name}} {{this.item.unitaryWeight}} {{this.item.weightType}}</mat-card-title>
+  <mat-card-title>
+    {{this.item.name}} {{this.item.unitaryWeight}} {{this.item.weightType}}</mat-card-title>
   <mat-card-subtitle>{{this.item.brand}}</mat-card-subtitle>
 
   <mat-card-content>
@@ -18,7 +19,7 @@
 
   <mat-card-actions>
 
-    <div fxLayout="row">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
 
       <button matTooltipPosition='above' *ngIf="this.cart.quantityOfItem(this.item) >= this.item.stock" color="warn"
         disabled mat-icon-button>

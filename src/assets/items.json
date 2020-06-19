@@ -12,7 +12,8 @@
             "unitaryWeight": 200,
             "unitaryPrice": 3.29,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91alI-UO%2BVL._SL1500_.jpg",
-            "calories": 240
+            "calories": 240,
+            "clicks": 1000
         },
         "stock": 10
     },
@@ -29,7 +30,8 @@
             "unitaryWeight": 120,
             "unitaryPrice": 2.29,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91tY%2BHe2AQL._SL1500_.jpg",
-            "calories": 250
+            "calories": 250,
+            "clicks": 156
         },
         "stock": 2
     },
@@ -47,7 +49,8 @@
             "unitaryWeight": 1,
             "unitaryPrice": 1.19,
             "pictureUrl": "https://cdn.shopify.com/s/files/1/2889/2216/products/NESTLE_LOW_FAT_MILK_250ML_800x.png?v=1523867402",
-            "calories": 110
+            "calories": 110,
+            "clicks": 150
         },
         "stock": 7
     },
@@ -64,7 +67,8 @@
             "unitaryWeight": 226,
             "unitaryPrice": 13.99,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/51yOc-1sIDL.jpg",
-            "calories": 540
+            "calories": 540,
+            "clicks": 2050
         },
         "stock": 3
     },
@@ -81,7 +85,8 @@
             "unitaryWeight": 241,
             "unitaryPrice": 15.99,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91BkbXuJPQL._SL1500_.jpg",
-            "calories": 560
+            "calories": 560,
+            "clicks": 2145
         },
         "stock": 1
     },
@@ -98,7 +103,8 @@
             "unitaryWeight": 206,
             "unitaryPrice": 11.99,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/61b1rz-6R9L._SL1000_.jpg",
-            "calories": 580
+            "calories": 580,
+            "clicks": 1986
         },
         "stock": 7
     },
@@ -115,7 +121,8 @@
             "unitaryWeight": 500,
             "unitaryPrice": 21.99,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81OhNS5Os6L._SL1440_.jpg",
-            "calories": 620
+            "calories": 620,
+            "clicks": 965
         },
         "stock": 2
     },
@@ -133,7 +140,8 @@
             "unitaryWeight": 1,
             "unitaryPrice": 3.49,
             "pictureUrl": "https://market.ibenia.com/image/cache/catalog/31680716101-700x700.jpg",
-            "calories": 100
+            "calories": 100,
+            "clicks": 169
         },
         "stock": 10
     },
@@ -152,7 +160,8 @@
             "unitaryWeight": 1,
             "unitaryPrice": 3.49,
             "pictureUrl": "https://driveimg4.intermarche.com/pt/Ressources/images/produit/zoom/E0824DD15C8B77F70D9EECF3EBEE36D7-nestle-iogurte-liquido-yoggi-sem-lactose-morango.jpg",
-            "calories": 150
+            "calories": 150,
+            "clicks": 853
         },
         "stock": 15
     },
@@ -170,7 +179,8 @@
             "unitaryWeight": 200,
             "unitaryPrice": 0.69,
             "pictureUrl": "https://driveimg4.intermarche.com/pt/Ressources/images/produit/zoom/8A1C7B9FB2E38572512FB968E794AC87-fruta-do-dia-banana-canarias.jpg",
-            "calories": 56
+            "calories": 56,
+            "clicks": 7862
         },
         "stock": 4
     },
@@ -188,7 +198,8 @@
             "unitaryWeight": 250,
             "unitaryPrice": 0.87,
             "pictureUrl": "https://driveimg2.intermarche.com/pt/Ressources/images/produit/zoom/AB633027A9D6F57361C3682B62639291-fruta-do-dia-uva-red-globe.jpg",
-            "calories": 67
+            "calories": 67,
+            "clicks": 4210
         },
         "stock": 15
     },
@@ -205,7 +216,8 @@
             "unitaryWeight": 220,
             "unitaryPrice": 1.99,
             "pictureUrl": "https://driveimg1.intermarche.com/pt/Ressources/images/produit/zoom/E8D955EC99B03B670D4EAC7EEE654AE8-oreo-bolachas.jpg",
-            "calories": 47400
+            "calories": 47400,
+            "clicks": 140
         },
         "stock": 15
     },
@@ -222,7 +234,8 @@
             "unitaryWeight": 5.4,
             "unitaryPrice": 1.30,
             "pictureUrl": "https://driveimg2.intermarche.com/pt/Ressources/images/produit/zoom/4C0857273220A8FAB3AB2304A0918BFE-luso-agua-s-gas.jpg",
-            "calories": 50
+            "calories": 50,
+            "clicks": 10652
         },
         "stock": 1
     }

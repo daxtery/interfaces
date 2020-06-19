@@ -2,10 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Item } from '../../item';
 import { ItemViewService } from 'src/app/services/item-view.service';
 import { Category } from 'src/app/category';
-import { DatabaseService, ItemAndStock } from 'src/app/services/database.service';
+import { DatabaseService } from 'src/app/services/database.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ItemView } from 'src/app/itemView';
 import { SearchService } from 'src/app/services/search.service';
+import { ItemAndStock } from 'src/app/ItemAndStock';
 
 @Component({
   selector: 'app-items-view',

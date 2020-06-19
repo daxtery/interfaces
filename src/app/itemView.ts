@@ -12,6 +12,7 @@ export class ItemView extends Item {
             item.unitaryWeight,
             item.weightType,
             item.pictureUrl,
-            item.calories);
+            item.calories,
+            item.clicks);
     }
 }

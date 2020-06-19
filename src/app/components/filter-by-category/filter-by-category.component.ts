@@ -4,11 +4,12 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { BehaviorSubject } from 'rxjs';
 import { ItemViewService } from 'src/app/services/item-view.service';
-import { DatabaseService, ItemAndStock } from 'src/app/services/database.service';
+import { DatabaseService } from 'src/app/services/database.service';
 import { Category } from 'src/app/category';
 import { Item } from 'src/app/item';
 import { ItemView } from 'src/app/itemView';
 import { SearchService } from 'src/app/services/search.service';
+import { ItemAndStock } from 'src/app/ItemAndStock';
 
 /** Flat to-do item node with expandable and level information */
 

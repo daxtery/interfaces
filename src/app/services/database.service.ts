@@ -6,12 +6,7 @@ import categories from '../../assets/categories.json';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ItemView } from '../itemView';
-
-export class ItemAndStock extends ItemView {
-  constructor(item: ItemView, public stock: number) {
-    super(item, item.category);
-  }
-}
+import { ItemAndStock } from '../ItemAndStock';
 
 @Injectable({
   providedIn: 'root'

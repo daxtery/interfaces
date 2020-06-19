@@ -8,5 +8,6 @@ export class Item {
                 public unitaryWeight: number,
                 public weightType: string,
                 public pictureUrl: string,
-                public calories: number) { }
+                public calories: number,
+                public clicks: number) { }
 }

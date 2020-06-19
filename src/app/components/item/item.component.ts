@@ -1,7 +1,7 @@
 import { Component, Input, Inject } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { ItemAndStock } from 'src/app/services/database.service';
+import { ItemAndStock } from 'src/app/ItemAndStock';
 
 @Component({
   selector: 'app-item',
