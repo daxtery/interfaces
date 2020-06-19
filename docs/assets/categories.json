@@ -6,6 +6,30 @@
             {
                 "name": "Soup",
                 "imageURL": "https://image.flaticon.com/icons/svg/604/604792.svg"
+            },
+            {
+                "name": "Fruit",
+                "imageURL": "https://image.flaticon.com/icons/svg/2674/2674472.svg",
+                "children": [
+                    {
+                        "name": "Banana",
+                        "imageURL": "https://image.flaticon.com/icons/svg/2990/2990497.svg"
+                    },
+                    {
+                        "name": "Grape",
+                        "imageURL": "https://image.flaticon.com/icons/svg/3054/3054897.svg"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Snack",
+        "imageURL": "https://image.flaticon.com/icons/svg/3050/3050217.svg",
+        "children": [
+            {
+                "name": "Cookie",
+                "imageURL": "https://image.flaticon.com/icons/svg/3014/3014376.svg"
             }
         ]
     },
@@ -16,6 +40,16 @@
             {
                 "name": "Soup",
                 "imageURL": "https://image.flaticon.com/icons/svg/2852/2852556.svg"
+            }
+        ]
+    },
+    {
+        "name": "Drinks",
+        "imageURL": "https://image.flaticon.com/icons/svg/3094/3094018.svg",
+        "children": [
+            {
+                "name": "Water",
+                "imageURL": "https://image.flaticon.com/icons/svg/926/926197.svg"
             }
         ]
     },

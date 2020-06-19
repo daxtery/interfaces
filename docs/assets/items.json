@@ -1,123 +1,229 @@
 [
     {
-        "id": 1,
-        "name": "Chicken Noodle Soup",
-        "brand": "Amazon",
-        "categoryNames": [
-            "Fresh",
-            "Soup"
-        ],
-        "weightType": "g",
-        "unitaryWeight": 200,
-        "unitaryPrice": 3.29,
-        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91alI-UO%2BVL._SL1500_.jpg"
+        "item": {
+            "id": 1,
+            "name": "Chicken Noodle Soup",
+            "brand": "Amazon",
+            "categoryNames": [
+                "Fresh",
+                "Soup"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 200,
+            "unitaryPrice": 3.29,
+            "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91alI-UO%2BVL._SL1500_.jpg",
+            "calories": 240
+        },
+        "stock": 10
     },
     {
-        "id": 2,
-        "name": "Chicken Noodle Soup",
-        "brand": "Campbell",
-        "categoryNames": [
-            "Frozen",
-            "Soup"
-        ],
-        "weightType": "g",
-        "unitaryWeight": 120,
-        "unitaryPrice": 2.29,
-        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91tY%2BHe2AQL._SL1500_.jpg"
+        "item": {
+            "id": 2,
+            "name": "Chicken Noodle Soup",
+            "brand": "Campbell",
+            "categoryNames": [
+                "Frozen",
+                "Soup"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 120,
+            "unitaryPrice": 2.29,
+            "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91tY%2BHe2AQL._SL1500_.jpg",
+            "calories": 250
+        },
+        "stock": 2
     },
     {
-        "id": 3,
-        "name": "Low Fat Milk",
-        "brand": "Nestle",
-        "categoryNames": [
-            "Dairy",
-            "Milk",
-            "Low Fat Milk"
-        ],
-        "weightType": "L",
-        "unitaryWeight": 1,
-        "unitaryPrice": 1.19,
-        "pictureUrl": "https://cdn.shopify.com/s/files/1/2889/2216/products/NESTLE_LOW_FAT_MILK_250ML_800x.png?v=1523867402"
+        "item": {
+            "id": 3,
+            "name": "Low Fat Milk",
+            "brand": "Nestle",
+            "categoryNames": [
+                "Dairy",
+                "Milk",
+                "Low Fat Milk"
+            ],
+            "weightType": "L",
+            "unitaryWeight": 1,
+            "unitaryPrice": 1.19,
+            "pictureUrl": "https://cdn.shopify.com/s/files/1/2889/2216/products/NESTLE_LOW_FAT_MILK_250ML_800x.png?v=1523867402",
+            "calories": 110
+        },
+        "stock": 7
     },
     {
-        "id": 4,
-        "name": "Pizza",
-        "brand": "Mikey's",
-        "categoryNames": [
-            "Ready-Made",
-            "Pizza"
-        ],
-        "weightType": "g",
-        "unitaryWeight": 226,
-        "unitaryPrice": 13.99,
-        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/51yOc-1sIDL.jpg"
+        "item": {
+            "id": 4,
+            "name": "Pizza",
+            "brand": "Mikey's",
+            "categoryNames": [
+                "Ready-Made",
+                "Pizza"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 226,
+            "unitaryPrice": 13.99,
+            "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/51yOc-1sIDL.jpg",
+            "calories": 540
+        },
+        "stock": 3
     },
     {
-        "id": 5,
-        "name": "Pizza",
-        "brand": "Digiorno",
-        "categoryNames": [
-            "Ready-Made",
-            "Pizza"
-        ],
-        "weightType": "g",
-        "unitaryWeight": 241,
-        "unitaryPrice": 15.99,
-        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91BkbXuJPQL._SL1500_.jpg"
+        "item": {
+            "id": 5,
+            "name": "Pizza",
+            "brand": "Digiorno",
+            "categoryNames": [
+                "Ready-Made",
+                "Pizza"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 241,
+            "unitaryPrice": 15.99,
+            "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91BkbXuJPQL._SL1500_.jpg",
+            "calories": 560
+        },
+        "stock": 1
     },
     {
-        "id": 6,
-        "name": "Pizza",
-        "brand": "Red Baron",
-        "categoryNames": [
-            "Ready-Made",
-            "Pizza"
-        ],
-        "weightType": "g",
-        "unitaryWeight": 206,
-        "unitaryPrice": 11.99,
-        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/61b1rz-6R9L._SL1000_.jpg"
+        "item": {
+            "id": 6,
+            "name": "Pizza",
+            "brand": "Red Baron",
+            "categoryNames": [
+                "Ready-Made",
+                "Pizza"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 206,
+            "unitaryPrice": 11.99,
+            "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/61b1rz-6R9L._SL1000_.jpg",
+            "calories": 580
+        },
+        "stock": 7
     },
     {
-        "id": 7,
-        "name": "Pizza",
-        "brand": "Gino's",
-        "categoryNames": [
-            "Ready-Made",
-            "Pizza"
-        ],
-        "weightType": "g",
-        "unitaryWeight": 500,
-        "unitaryPrice": 21.99,
-        "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81OhNS5Os6L._SL1440_.jpg"
+        "item": {
+            "id": 7,
+            "name": "Pizza",
+            "brand": "Gino's",
+            "categoryNames": [
+                "Ready-Made",
+                "Pizza"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 500,
+            "unitaryPrice": 21.99,
+            "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81OhNS5Os6L._SL1440_.jpg",
+            "calories": 620
+        },
+        "stock": 2
     },
     {
-        "id": 8,
-        "name": "2% reduced fat milk",
-        "brand": "Gossner Premium Milk",
-        "categoryNames": [
-            "Dairy",
-            "Milk",
-            "Fat Milk"
-        ],
-        "weightType": "L",
-        "unitaryWeight": 1,
-        "unitaryPrice": 3.49,
-        "pictureUrl": "https://market.ibenia.com/image/cache/catalog/31680716101-700x700.jpg"
+        "item": {
+            "id": 8,
+            "name": "2% reduced fat milk",
+            "brand": "Gossner Premium Milk",
+            "categoryNames": [
+                "Dairy",
+                "Milk",
+                "Fat Milk"
+            ],
+            "weightType": "L",
+            "unitaryWeight": 1,
+            "unitaryPrice": 3.49,
+            "pictureUrl": "https://market.ibenia.com/image/cache/catalog/31680716101-700x700.jpg",
+            "calories": 100
+        },
+        "stock": 10
     },
     {
-        "id": 9,
-        "name": "yoggi líquido sabor morango",
-        "brand": "Nestle",
-        "categoryNames": [
-            "Dairy",
-            "Yoggurt",
-            "Strawberry",
-            "Lactose Free"
-        ],
-        "weightType": "L",
-        "unitaryWeight": 1,
-        "unitaryPrice": 3.49,
-        "pictureUrl": "https://driveimg4.intermarche.com/pt/Ressources/images/produit/zoom/E0824DD15C8B77F70D9EECF3EBEE36D7-nestle-iogurte-liquido-yoggi-sem-lactose-morango.jpg"
+        "item": {
+            "id": 9,
+            "name": "yoggi líquido sabor morango",
+            "brand": "Nestle",
+            "categoryNames": [
+                "Dairy",
+                "Yoggurt",
+                "Strawberry",
+                "Lactose Free"
+            ],
+            "weightType": "L",
+            "unitaryWeight": 1,
+            "unitaryPrice": 3.49,
+            "pictureUrl": "https://driveimg4.intermarche.com/pt/Ressources/images/produit/zoom/E0824DD15C8B77F70D9EECF3EBEE36D7-nestle-iogurte-liquido-yoggi-sem-lactose-morango.jpg",
+            "calories": 150
+        },
+        "stock": 15
+    },
+    {
+        "item": {
+            "id": 10,
+            "name": "banana",
+            "brand": "Canárias",
+            "categoryNames": [
+                "Fresh",
+                "Fruit",
+                "Banana"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 200,
+            "unitaryPrice": 0.69,
+            "pictureUrl": "https://driveimg4.intermarche.com/pt/Ressources/images/produit/zoom/8A1C7B9FB2E38572512FB968E794AC87-fruta-do-dia-banana-canarias.jpg",
+            "calories": 56
+        },
+        "stock": 4
+    },
+    {
+        "item": {
+            "id": 11,
+            "name": "Grapes",
+            "brand": "Red Globe",
+            "categoryNames": [
+                "Fresh",
+                "Fruit",
+                "Grape"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 250,
+            "unitaryPrice": 0.87,
+            "pictureUrl": "https://driveimg2.intermarche.com/pt/Ressources/images/produit/zoom/AB633027A9D6F57361C3682B62639291-fruta-do-dia-uva-red-globe.jpg",
+            "calories": 67
+        },
+        "stock": 15
+    },
+    {
+        "item": {
+            "id": 12,
+            "name": "Oreo original",
+            "brand": "Oreo",
+            "categoryNames": [
+                "Snack",
+                "Cookie"
+            ],
+            "weightType": "g",
+            "unitaryWeight": 220,
+            "unitaryPrice": 1.99,
+            "pictureUrl": "https://driveimg1.intermarche.com/pt/Ressources/images/produit/zoom/E8D955EC99B03B670D4EAC7EEE654AE8-oreo-bolachas.jpg",
+            "calories": 47400
+        },
+        "stock": 15
+    },
+    {
+        "item": {
+            "id": 13,
+            "name": "Water",
+            "brand": "Luso",
+            "categoryNames": [
+                "Drinks",
+                "Water"
+            ],
+            "weightType": "L",
+            "unitaryWeight": 5.4,
+            "unitaryPrice": 1.30,
+            "pictureUrl": "https://driveimg2.intermarche.com/pt/Ressources/images/produit/zoom/4C0857273220A8FAB3AB2304A0918BFE-luso-agua-s-gas.jpg",
+            "calories": 50
+        },
+        "stock": 1
     }
 ]
