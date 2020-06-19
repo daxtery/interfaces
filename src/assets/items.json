@@ -215,6 +215,7 @@
             "name": "Water",
             "brand": "Luso",
             "categoryNames": [
+                "Drinks",
                 "Water"
             ],
             "weightType": "L",

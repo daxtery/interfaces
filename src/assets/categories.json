@@ -44,8 +44,14 @@
         ]
     },
     {
-        "name": "Water",
-        "imageURL": "https://image.flaticon.com/icons/svg/926/926197.svg"
+        "name": "Drinks",
+        "imageURL": "https://image.flaticon.com/icons/svg/3094/3094018.svg",
+        "children": [
+            {
+                "name": "Water",
+                "imageURL": "https://image.flaticon.com/icons/svg/926/926197.svg"
+            }
+        ]
     },
     {
         "name": "Dairy",
