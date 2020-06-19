@@ -13,6 +13,7 @@ import { ItemComponent, ItemDetailsDialog } from './components/item/item.compone
 import { CartPreviewComponent } from './components/cart-preview/cart-preview.component';
 import { CartViewComponent, DialogDataExampleDialog, ReceiptDialog } from './components/cart-view/cart-view.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { OrderByComponent } from './components/order-by/order-by.component';
 
 import { FormsModule } from '@angular/forms';
 
@@ -33,6 +34,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSortModule } from '@angular/material/sort';
+
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -52,7 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
       ItemDetailsDialog,
       DialogDataExampleDialog,
       ReceiptDialog,
-      MenuItemComponent
+      MenuItemComponent,
+      OrderByComponent
    ],
    imports: [
       BrowserModule,
@@ -78,6 +83,8 @@ import { HttpClientModule } from '@angular/common/http';
       MatButtonModule,
       MatExpansionModule,
       MatToolbarModule,
+      MatSortModule,
+      DragDropModule
    ],
    providers: [],
    bootstrap: [
