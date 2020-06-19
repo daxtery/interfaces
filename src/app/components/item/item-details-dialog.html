@@ -5,11 +5,11 @@
 
     <h3><b>Weight</b>: {{this.item.unitaryWeight}} {{this.item.weightType}}</h3>
     <h3><b>Brand</b>: {{this.item.brand}}</h3>
-    <h3><b>Unitary Price</b>: {{this.item.unitaryPrice}}</h3>
+    <h3><b>Unitary Price</b>: {{this.item.unitaryPrice | currency:'EUR'}}</h3>
     <h3><b>All Categories</b>: {{this.item.categoryNames}}</h3>
     <h3><b>Stock</b>: {{this.item.stock}}</h3>
     <h3><b>Calories</b>: {{this.item.calories}}</h3>
-    <h3><b>Price per kg/L</b>: {{this.item.pricePerWeight}}</h3>
+    <h3><b>Price per kg/L</b>: {{this.item.pricePerWeight | currency:'EUR'}}</h3>
     <h3><b>Weight in kg/L</b>: {{this.item.weightInStandardUnit}}</h3>
 
     <mat-accordion>
